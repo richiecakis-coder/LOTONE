@@ -11,7 +11,7 @@
     "name": "Wolverine 10",
     "price": 69,
     "homiePrice": 49,
-    "stock": 1
+    "stock": 0
   },
   {
     "id": "tesa10",
@@ -109,7 +109,7 @@
     "name": "R-15",
     "price": 89,
     "homiePrice": 70,
-    "stock": 10
+    "stock": 9
   },
   {
     "id": "5-amino-1mq-50",
@@ -172,7 +172,7 @@
     "name": "R-10",
     "price": 79,
     "homiePrice": 55,
-    "stock": 19
+    "stock": 18
   },
   {
     "id": "r-5",
