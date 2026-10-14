@@ -1,212 +1,365 @@
-[
-  {
-    "id": "ss-31-50",
-    "name": "SS-31 50",
-    "price": 99,
-    "homiePrice": 79,
-    "stock": 1
-  },
-  {
-    "id": "wolverine-10",
-    "name": "Wolverine 10",
-    "price": 69,
-    "homiePrice": 49,
-    "stock": 0
-  },
-  {
-    "id": "tesa10",
-    "name": "Tesa10",
-    "price": 79,
-    "homiePrice": 69,
-    "stock": 1
-  },
-  {
-    "id": "klow-80",
-    "name": "Klow 80",
-    "price": 149,
-    "homiePrice": 129,
-    "stock": 2
-  },
-  {
-    "id": "tesa5",
-    "name": "Tesa5",
-    "price": 65,
-    "homiePrice": 49,
-    "stock": 2
-  },
-  {
-    "id": "semax-10",
-    "name": "Semax 10",
-    "price": 49,
-    "homiePrice": 29,
-    "stock": 1
-  },
-  {
-    "id": "dsip-15",
-    "name": "DSIP 15",
-    "price": 69,
-    "homiePrice": 49,
-    "stock": 3
-  },
-  {
-    "id": "r-30",
-    "name": "R-30",
-    "price": 149,
-    "homiePrice": 115,
-    "stock": 3
-  },
-  {
-    "id": "r-60",
-    "name": "R-60",
-    "price": 169,
-    "homiePrice": 149,
-    "stock": 4
-  },
-  {
-    "id": "kpv-10",
-    "name": "KPV 10",
-    "price": 59,
-    "homiePrice": 39,
-    "stock": 5
-  },
-  {
-    "id": "mt-2-10",
-    "name": "MT-2 10",
-    "price": 59,
-    "homiePrice": 29,
-    "stock": 5
-  },
-  {
-    "id": "pinealon-10",
-    "name": "Pinealon 10",
-    "price": 59,
-    "homiePrice": 39,
-    "stock": 5
-  },
-  {
-    "id": "selank-10",
-    "name": "Selank 10",
-    "price": 49,
-    "homiePrice": 29,
-    "stock": 8
-  },
-  {
-    "id": "ss-31-10",
-    "name": "SS-31 10",
-    "price": 69,
-    "homiePrice": 49,
-    "stock": 9
-  },
-  {
-    "id": "mots40",
-    "name": "Mots40",
-    "price": 115,
-    "homiePrice": 89,
-    "stock": 9
-  },
-  {
-    "id": "r-15",
-    "name": "R-15",
-    "price": 89,
-    "homiePrice": 70,
-    "stock": 9
-  },
-  {
-    "id": "5-amino-1mq-50",
-    "name": "5-Amino-1MQ 50",
-    "price": 89,
-    "homiePrice": 49,
-    "stock": 10
-  },
-  {
-    "id": "selank-30",
-    "name": "Selank 30",
-    "price": 79,
-    "homiePrice": 59,
-    "stock": 10
-  },
-  {
-    "id": "t-30",
-    "name": "T-30",
-    "price": 89,
-    "homiePrice": 69,
-    "stock": 11
-  },
-  {
-    "id": "testc250",
-    "name": "TestC250",
-    "price": 129,
-    "homiePrice": 79,
-    "stock": 12
-  },
-  {
-    "id": "teste250",
-    "name": "TestE250",
-    "price": 129,
-    "homiePrice": 79,
-    "stock": 13
-  },
-  {
-    "id": "nad-1000",
-    "name": "NAD+ 1000",
-    "price": 99,
-    "homiePrice": 49,
-    "stock": 13
-  },
-  {
-    "id": "vendor-bac-3ml",
-    "name": "Vendor Bac 3mL",
-    "price": 20,
-    "homiePrice": 10,
-    "stock": 14
-  },
-  {
-    "id": "semax-30",
-    "name": "Semax 30",
-    "price": 79,
-    "homiePrice": 59,
-    "stock": 17
-  },
-  {
-    "id": "r-10",
-    "name": "R-10",
-    "price": 79,
-    "homiePrice": 55,
-    "stock": 18
-  },
-  {
-    "id": "r-5",
-    "name": "R-5",
-    "price": 59,
-    "homiePrice": 39,
-    "stock": 19
-  },
-  {
-    "id": "ghkcu100",
-    "name": "GHKCU100",
-    "price": 49,
-    "homiePrice": 39,
-    "stock": 34
-  },
-  {
-    "id": "vendor-bac-10ml",
-    "name": "Vendor Bac 10mL",
-    "price": 30,
-    "homiePrice": 20,
-    "stock": 38
-  },
-  {
-    "id": "r-20",
-    "name": "R-20",
-    "price": 109,
-    "homiePrice": 85,
-    "stock": 50
-  },
-  {
-    "id": "cjc-no-dac-ipa-5-5-mg",
-    "name": "CJC (no DAC)/IPA 5/5 mg",
-    "price": 79,
-    "homiePrice": 69,
-    "stock": 8
-  }
-]
+{
+  "updatedAt": "2026-10-14T20:25:27.070803+00:00",
+  "products": [
+    {
+      "id": "ss-31-50",
+      "name": "SS-31 50",
+      "price": 99,
+      "homiePrice": 79,
+      "stock": 18,
+      "warehouses": {
+        "R1": 1,
+        "R2": 0,
+        "R3": 17
+      }
+    },
+    {
+      "id": "wolverine-10",
+      "name": "Wolverine 10",
+      "price": 69,
+      "homiePrice": 49,
+      "stock": 0,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "tesa10",
+      "name": "Tesa10",
+      "price": 79,
+      "homiePrice": 69,
+      "stock": 30,
+      "warehouses": {
+        "R1": 1,
+        "R2": 0,
+        "R3": 29
+      }
+    },
+    {
+      "id": "klow-80",
+      "name": "Klow 80",
+      "price": 149,
+      "homiePrice": 129,
+      "stock": 11,
+      "warehouses": {
+        "R1": 2,
+        "R2": 9,
+        "R3": 0
+      }
+    },
+    {
+      "id": "tesa5",
+      "name": "Tesa5",
+      "price": 65,
+      "homiePrice": 49,
+      "stock": 2,
+      "warehouses": {
+        "R1": 2,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "semax-10",
+      "name": "Semax 10",
+      "price": 49,
+      "homiePrice": 29,
+      "stock": 1,
+      "warehouses": {
+        "R1": 1,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "dsip-15",
+      "name": "DSIP 15",
+      "price": 69,
+      "homiePrice": 49,
+      "stock": 7,
+      "warehouses": {
+        "R1": 3,
+        "R2": 0,
+        "R3": 4
+      }
+    },
+    {
+      "id": "r-30",
+      "name": "R-30",
+      "price": 149,
+      "homiePrice": 115,
+      "stock": 18,
+      "warehouses": {
+        "R1": 3,
+        "R2": 0,
+        "R3": 15
+      }
+    },
+    {
+      "id": "r-60",
+      "name": "R-60",
+      "price": 169,
+      "homiePrice": 149,
+      "stock": 4,
+      "warehouses": {
+        "R1": 4,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "kpv-10",
+      "name": "KPV 10",
+      "price": 59,
+      "homiePrice": 39,
+      "stock": 56,
+      "warehouses": {
+        "R1": 5,
+        "R2": 0,
+        "R3": 51
+      }
+    },
+    {
+      "id": "mt-2-10",
+      "name": "MT-2 10",
+      "price": 59,
+      "homiePrice": 29,
+      "stock": 40,
+      "warehouses": {
+        "R1": 5,
+        "R2": 0,
+        "R3": 35
+      }
+    },
+    {
+      "id": "pinealon-10",
+      "name": "Pinealon 10",
+      "price": 59,
+      "homiePrice": 39,
+      "stock": 9,
+      "warehouses": {
+        "R1": 5,
+        "R2": 0,
+        "R3": 4
+      }
+    },
+    {
+      "id": "selank-10",
+      "name": "Selank 10",
+      "price": 49,
+      "homiePrice": 29,
+      "stock": 21,
+      "warehouses": {
+        "R1": 8,
+        "R2": 8,
+        "R3": 5
+      }
+    },
+    {
+      "id": "cjc-no-dac-ipa-5-5-mg",
+      "name": "CJC (no DAC)/IPA 5/5 mg",
+      "price": 79,
+      "homiePrice": 69,
+      "stock": 8,
+      "warehouses": {
+        "R1": 8,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "ss-31-10",
+      "name": "SS-31 10",
+      "price": 69,
+      "homiePrice": 49,
+      "stock": 43,
+      "warehouses": {
+        "R1": 9,
+        "R2": 0,
+        "R3": 34
+      }
+    },
+    {
+      "id": "mots40",
+      "name": "Mots40",
+      "price": 115,
+      "homiePrice": 89,
+      "stock": 46,
+      "warehouses": {
+        "R1": 9,
+        "R2": 9,
+        "R3": 28
+      }
+    },
+    {
+      "id": "r-15",
+      "name": "R-15",
+      "price": 89,
+      "homiePrice": 70,
+      "stock": 12,
+      "warehouses": {
+        "R1": 9,
+        "R2": 3,
+        "R3": 0
+      }
+    },
+    {
+      "id": "5-amino-1mq-50",
+      "name": "5-Amino-1MQ 50",
+      "price": 89,
+      "homiePrice": 49,
+      "stock": 19,
+      "warehouses": {
+        "R1": 10,
+        "R2": 9,
+        "R3": 0
+      }
+    },
+    {
+      "id": "selank-30",
+      "name": "Selank 30",
+      "price": 79,
+      "homiePrice": 59,
+      "stock": 25,
+      "warehouses": {
+        "R1": 10,
+        "R2": 0,
+        "R3": 15
+      }
+    },
+    {
+      "id": "t-30",
+      "name": "T-30",
+      "price": 89,
+      "homiePrice": 69,
+      "stock": 31,
+      "warehouses": {
+        "R1": 11,
+        "R2": 0,
+        "R3": 20
+      }
+    },
+    {
+      "id": "testc250",
+      "name": "TestC250",
+      "price": 129,
+      "homiePrice": 79,
+      "stock": 38,
+      "warehouses": {
+        "R1": 12,
+        "R2": 2,
+        "R3": 24
+      }
+    },
+    {
+      "id": "teste250",
+      "name": "TestE250",
+      "price": 129,
+      "homiePrice": 79,
+      "stock": 13,
+      "warehouses": {
+        "R1": 13,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "nad-1000",
+      "name": "NAD+ 1000",
+      "price": 99,
+      "homiePrice": 49,
+      "stock": 13,
+      "warehouses": {
+        "R1": 13,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "vendor-bac-3ml",
+      "name": "Vendor Bac 3mL",
+      "price": 20,
+      "homiePrice": 10,
+      "stock": 77,
+      "warehouses": {
+        "R1": 14,
+        "R2": 3,
+        "R3": 60
+      }
+    },
+    {
+      "id": "semax-30",
+      "name": "Semax 30",
+      "price": 79,
+      "homiePrice": 59,
+      "stock": 17,
+      "warehouses": {
+        "R1": 17,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "r-10",
+      "name": "R-10",
+      "price": 79,
+      "homiePrice": 55,
+      "stock": 18,
+      "warehouses": {
+        "R1": 18,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "r-5",
+      "name": "R-5",
+      "price": 59,
+      "homiePrice": 39,
+      "stock": 19,
+      "warehouses": {
+        "R1": 19,
+        "R2": 0,
+        "R3": 0
+      }
+    },
+    {
+      "id": "ghkcu100",
+      "name": "GHKCU100",
+      "price": 49,
+      "homiePrice": 39,
+      "stock": 52,
+      "warehouses": {
+        "R1": 34,
+        "R2": 8,
+        "R3": 10
+      }
+    },
+    {
+      "id": "vendor-bac-10ml",
+      "name": "Vendor Bac 10mL",
+      "price": 30,
+      "homiePrice": 20,
+      "stock": 74,
+      "warehouses": {
+        "R1": 38,
+        "R2": 9,
+        "R3": 27
+      }
+    },
+    {
+      "id": "r-20",
+      "name": "R-20",
+      "price": 109,
+      "homiePrice": 85,
+      "stock": 89,
+      "warehouses": {
+        "R1": 50,
+        "R2": 0,
+        "R3": 39
+      }
+    }
+  ]
+}

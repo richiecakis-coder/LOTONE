@@ -20,7 +20,7 @@ There is **no build step, no framework, no package.json**. Netlify publishes the
 
 ## How the page works (in `index.html`)
 
-- **Products** — the `products` array near the top of the `<script>` is the fallback catalog (`id`, `name`, `price`, `homiePrice`, `stock`). On load, the page fetches live inventory from a published Google Sheet (`SHEET_CSV_URL`) and replaces the fallback if successful. `parseSheet()` expects the columns `Item Name`, `Stock`, `Retail Price` and optionally `Homie Price`; rows with zero stock are hidden. To change real inventory, edit the Google Sheet — the hard-coded list is only a backup.
+- **Products** — the `products` array near the top of the `<script>` is the fallback catalog (`id`, `name`, `price`, `homiePrice`, `stock`, `warehouses`). On load, the page fetches the published pricing sheet plus the R1, R2, and R3 inventory sheets, keeps the website's established short product names, and replaces the fallback if all four reads succeed. The pricing sheet controls the orderable catalog and price tiers; warehouse sheets control stock. `.github/scripts/sync_inventory.py` refreshes the embedded fallback and `products.json` on schedule.
 - **Coupon** — entering the discount code (see the coupon handler around `couponCode.value`) switches prices from `price` to `homiePrice`. The selected tier is sent in the hidden `pricing_tier` field.
 - **Order submission** — the `<form id="orderForm">` posts (multipart, with the payment proof image) to FormSubmit (`action="https://formsubmit.co/..."`). JS fills the hidden fields `order_number`, `order_items` and `order_total` before submit, then shows the `#confirmation` panel.
 - **Delivery** — "Shipping" shows the `#addressPanel` and makes the address fields required; "Local Pickup" hides it.
@@ -48,7 +48,7 @@ Rules to preserve:
 - Make small, focused edits to `index.html`; don't rewrite the whole file.
 - Match the existing code style: vanilla ES5-style JavaScript (`var`, `function`), no external JS libraries.
 - Escape any user- or sheet-provided text before inserting it as HTML (use the existing `escapeHtml()`).
-- Don't change the payment handles, the FormSubmit email address, the Google Sheet URL or the coupon code unless the owner asks.
+- Don't change the payment handles, the FormSubmit email address, the Google Sheet URLs or the coupon code unless the owner asks.
 - Never commit secrets, API keys or passwords.
 
 ## Testing
