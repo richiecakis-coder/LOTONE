@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Build the LOT ONE ordering catalog from live pricing and warehouse sheets.
 
-The published Website sheet is authoritative for which products can be ordered
-and for both pricing tiers. R1, R2, and R3 are authoritative for stock. The
+The published Website sheet is authoritative for both pricing tiers. R1, R2,
+and R3 are authoritative for stock and for which stocked products exist. The
 result is embedded into index.html and saved as products.json as a resilient
-fallback for browsers that cannot reach Google Sheets directly.
+fallback for browsers that cannot reach Google Sheets directly. Products that
+have warehouse stock but no approved price remain visible with pricing pending.
 """
 import csv
 import json
@@ -67,12 +68,14 @@ def canonical_website_name(value):
         (r"^(?:Testosterone Cypionate|TestC)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"TestC{m.group(1)}"),
         (r"^(?:Testosterone Enanthate|TestE)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"TestE{m.group(1)}"),
         (r"^(?:Bacteriostatic Water|Vendor Bac)\s*(\d+(?:\.\d+)?)\s*mL$", lambda m: f"Vendor Bac {m.group(1)}mL"),
-        (r"^(?:hCG|HCG)\s*(\d+(?:\.\d+)?)\s*K$", lambda m: f"HCG {m.group(1)}K"),
+        (r"^(?:hCG|HCG|G)\s*(\d+(?:\.\d+)?)\s*K$", lambda m: f"G{m.group(1)}K"),
         (r"^(?:GHK-Cu|GHKCU)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"GHKCU{m.group(1)}"),
         (r"^(?:MOTS-C|Mots)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"Mots{m.group(1)}"),
         (r"^(?:Melanotan II|MT-?2)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"MT-2 {m.group(1)}"),
         (r"^(?:Thymosin Alpha-1|TA-?1)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"TA-1 {m.group(1)}"),
         (r"^(?:Epithalon|Epitalon)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"Epitalon {m.group(1)}"),
+        (r"^(?:TB-?500|BT)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"BT{m.group(1)}"),
+        (r"^(?:Bacteriostatic Water|Vendor Bac)\s*30\s*mL(?:\s*\(Hospira\))?$", lambda m: "Vendor Bac 30mL"),
         (r"^KLOW\s*(\d+(?:\.\d+)?)\s*(?:mg)?$", lambda m: f"Klow {m.group(1)}"),
     )
     for pattern, replacement in patterns:
@@ -102,6 +105,7 @@ def fetch_csv(url):
 def read_warehouse(name, config):
     rows = list(csv.reader(fetch_csv(config["url"]).splitlines()))
     stock = {}
+    names = {}
     for row in rows[1:]:
         if not row:
             continue
@@ -109,30 +113,55 @@ def read_warehouse(name, config):
         if not product_name or re.match(r"^total\b", product_name, re.I):
             continue
         quantity = parse_number(row[config["stock_column"]] if len(row) > config["stock_column"] else 0)
-        key = product_key(product_name)
+        canonical_name = canonical_website_name(product_name)
+        key = product_key(canonical_name)
         stock[key] = stock.get(key, 0) + max(0, int(quantity))
+        names.setdefault(key, canonical_name)
     print(f"{name}: {len(stock)} warehouse products")
-    return stock
+    return stock, names
 
 
 def build_products():
     pricing_rows = list(csv.DictReader(fetch_csv(PRICING_SHEET_CSV).splitlines()))
-    warehouse_stock = {name: read_warehouse(name, config) for name, config in WAREHOUSE_SHEETS.items()}
-    products = []
+    warehouse_data = {name: read_warehouse(name, config) for name, config in WAREHOUSE_SHEETS.items()}
+    warehouse_stock = {name: data[0] for name, data in warehouse_data.items()}
+    warehouse_names = {name: data[1] for name, data in warehouse_data.items()}
+    pricing = {}
     for row in pricing_rows:
         raw_name = (row.get("Item Name") or "").strip()
         if not raw_name:
             continue
         name = canonical_website_name(raw_name)
-        key = product_key(name)
-        locations = {warehouse: int(warehouse_stock[warehouse].get(key, 0)) for warehouse in WAREHOUSE_SHEETS}
-        if key not in warehouse_stock["R1"]:
-            locations["R1"] = max(0, int(parse_number(row.get("Stock"), 0)))
-        products.append({
-            "id": slugify(name),
+        pricing[product_key(name)] = {
             "name": name,
             "price": parse_price(row.get("Retail Price")),
             "homiePrice": parse_price(row.get("Homie Price")),
+            "fallbackStock": max(0, int(parse_number(row.get("Stock"), 0))),
+        }
+
+    all_keys = set(pricing)
+    for stock in warehouse_stock.values():
+        all_keys.update(stock)
+    products = []
+    for key in sorted(all_keys):
+        priced = pricing.get(key, {})
+        name = priced.get("name")
+        if not name:
+            for warehouse in WAREHOUSE_SHEETS:
+                name = warehouse_names[warehouse].get(key)
+                if name:
+                    break
+        if not name:
+            continue
+        locations = {warehouse: int(warehouse_stock[warehouse].get(key, 0)) for warehouse in WAREHOUSE_SHEETS}
+        found_in_any_warehouse = any(key in warehouse_stock[warehouse] for warehouse in WAREHOUSE_SHEETS)
+        if not found_in_any_warehouse and priced:
+            locations["R1"] = priced["fallbackStock"]
+        products.append({
+            "id": slugify(name),
+            "name": name,
+            "price": priced.get("price", 0),
+            "homiePrice": priced.get("homiePrice", 0),
             "stock": sum(locations.values()),
             "warehouses": locations,
         })
@@ -193,7 +222,8 @@ def main():
     with open("products.json", "w", encoding="utf-8") as output:
         json.dump(payload, output, indent=2)
         output.write("\n")
-    print(f"SYNC OK: {len(products)} priced products, {sum(item['stock'] for item in products)} units")
+    priced_count = sum(1 for item in products if item["price"] > 0)
+    print(f"SYNC OK: {len(products)} products ({priced_count} priced), {sum(item['stock'] for item in products)} units")
     return 0
 
 

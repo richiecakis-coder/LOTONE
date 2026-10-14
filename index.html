@@ -283,7 +283,20 @@
       .product-grid[data-view="list"] .product-card{min-height:156px}.product-grid[data-view="list"] .variant-options{gap:7px}.product-grid[data-view="list"] .variant-pill{padding:6px 9px}.product-grid[data-view="list"] .stepper{width:min(132px,100%)}.product-grid[data-view="list"] .add-button{width:auto}
     }
     @media(max-width:370px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.product-card{min-height:220px;padding:8px 7px}.variant-pill{padding-inline:5px}.view-button span{display:none}.catalog-secondary{display:grid}.result-count{padding-top:0}.product-grid[data-view="list"] .product-card{min-height:0}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body::before,body::after,.wrap::before,.wrap::after,.submit{animation:none}.product-card,.stat-card,.submit{transition:none}.wrap::after{display:none}}
+    .variant-prompt{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px;padding-top:8px;border-top:1px solid rgba(39,216,255,.16)}
+    .variant-prompt strong{color:#fff;font:800 11px/1.2 "Manrope",sans-serif;letter-spacing:.045em;text-transform:uppercase}.variant-prompt span{color:var(--accent-strong);font-size:9px;font-weight:800}
+    .variant-options.is-choice{min-height:42px;padding:7px;border:1px solid rgba(39,216,255,.42);border-radius:10px;background:rgba(4,19,34,.82);box-shadow:inset 0 0 18px rgba(39,216,255,.05),0 0 18px rgba(39,216,255,.08)}
+    .variant-options.is-choice .variant-pill{min-height:31px;padding:7px 10px;font-size:11px}.variant-options.is-choice .variant-pill[aria-pressed="true"]{color:#001b22;background:linear-gradient(135deg,#79fbd1,#58e8ff);box-shadow:0 0 18px rgba(82,235,218,.3)}
+    .price-pending{color:#ffd58a!important;font-size:13px!important;text-shadow:none!important}.add-button:disabled,.stepper button:disabled,.stepper input:disabled{cursor:not-allowed;opacity:.42;filter:grayscale(.7)}
+    .cart-button{position:fixed;z-index:70;right:max(16px,calc((100vw - 1040px)/2));bottom:16px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;min-width:260px;border:1px solid rgba(117,255,208,.62);border-radius:16px;padding:11px 14px;background:linear-gradient(145deg,rgba(8,32,44,.98),rgba(3,16,28,.99));color:#fff;box-shadow:0 14px 44px rgba(0,0,0,.52),0 0 28px rgba(77,245,189,.2);cursor:pointer;text-align:left}.cart-button[hidden]{display:none}.cart-button-icon{font-size:20px}.cart-button strong,.cart-button small{display:block}.cart-button strong{font:800 13px/1.2 "Manrope",sans-serif}.cart-button small{margin-top:2px;color:var(--muted);font-size:10px}.cart-button-total{color:#8fffd8;font:800 17px/1 "Manrope",sans-serif}
+    .cart-backdrop{position:fixed;z-index:80;inset:0;background:rgba(0,7,13,.72);backdrop-filter:blur(4px)}.cart-backdrop[hidden]{display:none}
+    .cart-drawer{position:fixed;z-index:90;top:0;right:0;width:min(430px,100%);height:100dvh;padding:22px;overflow:auto;background:linear-gradient(160deg,#0a1d2c,#020a12 70%);border-left:1px solid rgba(39,216,255,.28);box-shadow:-24px 0 70px rgba(0,0,0,.62);transform:translateX(105%);transition:transform .24s ease}.cart-drawer.open{transform:translateX(0)}
+    .cart-drawer-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}.cart-drawer h2,.checkout-heading h2{margin:3px 0 0;font:800 clamp(22px,5vw,30px)/1.05 "Manrope",sans-serif}.eyebrow{color:#79fbd1;font:800 10px/1.2 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase}.cart-close{width:40px;height:40px;border:1px solid var(--line-bright);border-radius:50%;background:rgba(255,255,255,.04);color:#fff;font-size:25px;cursor:pointer}.cart-drawer .summary-box{margin-top:16px}.cart-checkout{margin-top:18px;padding:15px}.continue-shopping{width:100%;border:0;background:transparent;color:var(--muted);padding:13px;font-weight:800;cursor:pointer}
+    .summary-item{align-items:center}.summary-copy{min-width:0}.summary-copy strong,.summary-copy small{display:block}.summary-copy small{margin-top:3px;color:var(--muted)}.summary-remove{border:0;background:transparent;color:#ff9aab;font-size:11px;font-weight:800;cursor:pointer}.summary-price{margin-left:auto}
+    .checkout-flow{display:grid;gap:18px}.checkout-flow[hidden]{display:none}.checkout-heading{display:flex;align-items:center;gap:18px;padding:18px 2px 4px}.back-shopping{border:1px solid var(--line-bright);border-radius:999px;padding:10px 13px;background:rgba(5,22,38,.9);color:#fff;font-weight:800;cursor:pointer;white-space:nowrap}
+    body.cart-open{overflow:hidden}
+    @media(max-width:650px){.variant-prompt{align-items:flex-start;flex-direction:column;gap:3px}.variant-options.is-choice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.variant-options.is-choice .variant-pill{white-space:normal}.cart-button{right:10px;bottom:10px;left:10px;min-width:0;width:calc(100% - 20px)}.cart-drawer{padding:18px 14px 24px}.checkout-heading{align-items:flex-start;flex-direction:column-reverse;gap:10px}.back-shopping{padding:8px 11px}.product-card{overflow:visible}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body::before,body::after,.wrap::before,.wrap::after,.submit{animation:none}.product-card,.stat-card,.submit,.cart-drawer{transition:none}.wrap::after{display:none}}
   </style>
 </head>
 <body>
@@ -309,7 +322,7 @@
     <aside class="notice" aria-label="Ordering instructions">
       <div class="notice-mark" aria-hidden="true">✓</div>
       <div>
-        <p>Choose your vials, send payment using one of the methods below, then attach your payment screenshot and submit.</p>
+        <p>Choose a strength, add products to your cart, then continue to secure checkout.</p>
       </div>
     </aside>
 
@@ -348,6 +361,8 @@
             <button class="family-pill" type="button" data-family-filter="selank" aria-pressed="false">Selank</button>
             <button class="family-pill" type="button" data-family-filter="semax" aria-pressed="false">Semax</button>
             <button class="family-pill" type="button" data-family-filter="ss31" aria-pressed="false">SS-31</button>
+            <button class="family-pill" type="button" data-family-filter="mots" aria-pressed="false">Mots</button>
+            <button class="family-pill" type="button" data-family-filter="nad" aria-pressed="false">NAD+</button>
             <button class="family-pill" type="button" data-family-filter="bac" aria-pressed="false">B-Water</button>
             <button class="family-pill" type="button" data-family-filter="test" aria-pressed="false">Test</button>
             <button class="family-pill" type="button" data-family-filter="singles" aria-pressed="false">Singles</button><button class="family-pill" type="button" data-family-filter="kits" aria-pressed="false">Kits</button>
@@ -366,9 +381,17 @@
         <div id="kitsGrid" class="product-grid" data-view="grid" aria-label="Available kits" hidden></div>
       </section>
 
-      <section class="panel" aria-labelledby="summary-title">
-        <div class="section-head">
-          <h2 id="summary-title">Order summary</h2>
+      <button id="cartButton" class="cart-button" type="button" aria-controls="cartDrawer" aria-expanded="false" hidden>
+        <span class="cart-button-icon" aria-hidden="true">🛒</span>
+        <span><strong>View cart</strong><small id="cartCountLabel">0 items</small></span>
+        <span id="cartButtonTotal" class="cart-button-total">$0.00</span>
+      </button>
+
+      <div id="cartBackdrop" class="cart-backdrop" hidden></div>
+      <aside id="cartDrawer" class="cart-drawer" aria-labelledby="summary-title" aria-hidden="true">
+        <div class="cart-drawer-head">
+          <div><span class="eyebrow">Your selection</span><h2 id="summary-title">Shopping cart</h2></div>
+          <button id="closeCart" class="cart-close" type="button" aria-label="Close shopping cart">×</button>
         </div>
         <div class="coupon-box">
           <label for="couponCode">Coupon code</label>
@@ -377,10 +400,18 @@
         </div>
         <input id="pricingTierField" type="hidden" name="pricing_tier" value="Suggested Retail Price" />
         <div class="summary-box" aria-live="polite">
-          <div id="summaryList" class="summary-empty">No items selected</div>
+          <div id="summaryList" class="summary-empty">Your cart is empty</div>
           <div class="total-row"><strong>Total</strong><output id="orderTotal">$0.00</output></div>
         </div>
-      </section>
+        <button id="continueCheckout" class="submit cart-checkout" type="button" disabled>Continue to checkout</button>
+        <button id="continueShopping" class="continue-shopping" type="button">Continue shopping</button>
+      </aside>
+
+      <div id="checkoutFlow" class="checkout-flow" hidden>
+        <div class="checkout-heading">
+          <button id="backToShopping" class="back-shopping" type="button">← Back to products</button>
+          <div><span class="eyebrow">Secure checkout</span><h2>Complete your order</h2></div>
+        </div>
 
       <section class="panel" aria-labelledby="contact-title">
         <div class="section-head"><h2 id="contact-title">Your information</h2><span><span class="req">*</span> Required</span></div>
@@ -480,6 +511,7 @@
           <button id="retryButton" class="retry" type="button" hidden>Try again</button>
         </div>
       </div>
+      </div>
     </form>
 
     <section id="confirmation" class="panel confirmation" aria-labelledby="confirmation-title" hidden>
@@ -525,36 +557,45 @@
       };
 
       var products = [
-        { id: "ss-31-50", name: "SS-31 50", price: 99, homiePrice: 79, stock: 18, warehouses: {"R1":1,"R2":0,"R3":17} },
-        { id: "wolverine-10", name: "Wolverine 10", price: 69, homiePrice: 49, stock: 0, warehouses: {"R1":0,"R2":0,"R3":0} },
-        { id: "tesa10", name: "Tesa10", price: 79, homiePrice: 69, stock: 30, warehouses: {"R1":1,"R2":0,"R3":29} },
-        { id: "klow-80", name: "Klow 80", price: 149, homiePrice: 129, stock: 11, warehouses: {"R1":2,"R2":9,"R3":0} },
-        { id: "tesa5", name: "Tesa5", price: 65, homiePrice: 49, stock: 2, warehouses: {"R1":2,"R2":0,"R3":0} },
-        { id: "semax-10", name: "Semax 10", price: 49, homiePrice: 29, stock: 1, warehouses: {"R1":1,"R2":0,"R3":0} },
-        { id: "dsip-15", name: "DSIP 15", price: 69, homiePrice: 49, stock: 7, warehouses: {"R1":3,"R2":0,"R3":4} },
-        { id: "r-30", name: "R-30", price: 149, homiePrice: 115, stock: 18, warehouses: {"R1":3,"R2":0,"R3":15} },
-        { id: "r-60", name: "R-60", price: 169, homiePrice: 149, stock: 4, warehouses: {"R1":4,"R2":0,"R3":0} },
-        { id: "kpv-10", name: "KPV 10", price: 59, homiePrice: 39, stock: 56, warehouses: {"R1":5,"R2":0,"R3":51} },
-        { id: "mt-2-10", name: "MT-2 10", price: 59, homiePrice: 29, stock: 40, warehouses: {"R1":5,"R2":0,"R3":35} },
-        { id: "pinealon-10", name: "Pinealon 10", price: 59, homiePrice: 39, stock: 9, warehouses: {"R1":5,"R2":0,"R3":4} },
-        { id: "selank-10", name: "Selank 10", price: 49, homiePrice: 29, stock: 21, warehouses: {"R1":8,"R2":8,"R3":5} },
-        { id: "cjc-no-dac-ipa-5-5-mg", name: "CJC (no DAC)/IPA 5/5 mg", price: 79, homiePrice: 69, stock: 8, warehouses: {"R1":8,"R2":0,"R3":0} },
-        { id: "ss-31-10", name: "SS-31 10", price: 69, homiePrice: 49, stock: 43, warehouses: {"R1":9,"R2":0,"R3":34} },
-        { id: "mots40", name: "Mots40", price: 115, homiePrice: 89, stock: 46, warehouses: {"R1":9,"R2":9,"R3":28} },
-        { id: "r-15", name: "R-15", price: 89, homiePrice: 70, stock: 12, warehouses: {"R1":9,"R2":3,"R3":0} },
         { id: "5-amino-1mq-50", name: "5-Amino-1MQ 50", price: 89, homiePrice: 49, stock: 19, warehouses: {"R1":10,"R2":9,"R3":0} },
+        { id: "bt10", name: "BT10", price: 0, homiePrice: 0, stock: 17, warehouses: {"R1":0,"R2":0,"R3":17} },
+        { id: "cjc-no-dac-ipa-5-5-mg", name: "CJC (no DAC)/IPA 5/5 mg", price: 79, homiePrice: 69, stock: 8, warehouses: {"R1":8,"R2":0,"R3":0} },
+        { id: "dsip-15", name: "DSIP 15", price: 69, homiePrice: 49, stock: 7, warehouses: {"R1":3,"R2":0,"R3":4} },
+        { id: "epitalon-10", name: "Epitalon 10", price: 0, homiePrice: 0, stock: 20, warehouses: {"R1":0,"R2":0,"R3":20} },
+        { id: "g5k", name: "G5K", price: 0, homiePrice: 0, stock: 10, warehouses: {"R1":0,"R2":1,"R3":9} },
+        { id: "ghkcu100", name: "GHKCU100", price: 49, homiePrice: 39, stock: 52, warehouses: {"R1":34,"R2":8,"R3":10} },
+        { id: "klow-80", name: "Klow 80", price: 149, homiePrice: 129, stock: 11, warehouses: {"R1":2,"R2":9,"R3":0} },
+        { id: "kpv-10", name: "KPV 10", price: 59, homiePrice: 39, stock: 56, warehouses: {"R1":5,"R2":0,"R3":51} },
+        { id: "mots10", name: "Mots10", price: 0, homiePrice: 0, stock: 20, warehouses: {"R1":0,"R2":0,"R3":20} },
+        { id: "mots40", name: "Mots40", price: 115, homiePrice: 89, stock: 46, warehouses: {"R1":9,"R2":9,"R3":28} },
+        { id: "mt-2-10", name: "MT-2 10", price: 59, homiePrice: 29, stock: 40, warehouses: {"R1":5,"R2":0,"R3":35} },
+        { id: "nad-100", name: "NAD+ 100", price: 0, homiePrice: 0, stock: 9, warehouses: {"R1":0,"R2":9,"R3":0} },
+        { id: "nad-1000", name: "NAD+ 1000", price: 99, homiePrice: 49, stock: 13, warehouses: {"R1":13,"R2":0,"R3":0} },
+        { id: "pinealon-10", name: "Pinealon 10", price: 59, homiePrice: 39, stock: 9, warehouses: {"R1":5,"R2":0,"R3":4} },
+        { id: "r-10", name: "R-10", price: 79, homiePrice: 55, stock: 18, warehouses: {"R1":18,"R2":0,"R3":0} },
+        { id: "r-15", name: "R-15", price: 89, homiePrice: 70, stock: 12, warehouses: {"R1":9,"R2":3,"R3":0} },
+        { id: "r-20", name: "R-20", price: 109, homiePrice: 85, stock: 89, warehouses: {"R1":50,"R2":0,"R3":39} },
+        { id: "r-30", name: "R-30", price: 149, homiePrice: 115, stock: 18, warehouses: {"R1":3,"R2":0,"R3":15} },
+        { id: "r-40", name: "R-40", price: 0, homiePrice: 0, stock: 10, warehouses: {"R1":0,"R2":10,"R3":0} },
+        { id: "r-5", name: "R-5", price: 59, homiePrice: 39, stock: 19, warehouses: {"R1":19,"R2":0,"R3":0} },
+        { id: "r-60", name: "R-60", price: 169, homiePrice: 149, stock: 4, warehouses: {"R1":4,"R2":0,"R3":0} },
+        { id: "selank-10", name: "Selank 10", price: 49, homiePrice: 29, stock: 21, warehouses: {"R1":8,"R2":8,"R3":5} },
         { id: "selank-30", name: "Selank 30", price: 79, homiePrice: 59, stock: 25, warehouses: {"R1":10,"R2":0,"R3":15} },
+        { id: "semax-10", name: "Semax 10", price: 49, homiePrice: 29, stock: 1, warehouses: {"R1":1,"R2":0,"R3":0} },
+        { id: "semax-30", name: "Semax 30", price: 79, homiePrice: 59, stock: 17, warehouses: {"R1":17,"R2":0,"R3":0} },
+        { id: "ss-31-10", name: "SS-31 10", price: 69, homiePrice: 49, stock: 43, warehouses: {"R1":9,"R2":0,"R3":34} },
+        { id: "ss-31-50", name: "SS-31 50", price: 99, homiePrice: 79, stock: 18, warehouses: {"R1":1,"R2":0,"R3":17} },
+        { id: "t-20", name: "T-20", price: 0, homiePrice: 0, stock: 30, warehouses: {"R1":0,"R2":0,"R3":30} },
         { id: "t-30", name: "T-30", price: 89, homiePrice: 69, stock: 31, warehouses: {"R1":11,"R2":0,"R3":20} },
+        { id: "ta-1-10", name: "TA-1 10", price: 0, homiePrice: 0, stock: 7, warehouses: {"R1":0,"R2":0,"R3":7} },
+        { id: "tesa10", name: "Tesa10", price: 79, homiePrice: 69, stock: 30, warehouses: {"R1":1,"R2":0,"R3":29} },
+        { id: "tesa5", name: "Tesa5", price: 65, homiePrice: 49, stock: 2, warehouses: {"R1":2,"R2":0,"R3":0} },
         { id: "testc250", name: "TestC250", price: 129, homiePrice: 79, stock: 38, warehouses: {"R1":12,"R2":2,"R3":24} },
         { id: "teste250", name: "TestE250", price: 129, homiePrice: 79, stock: 13, warehouses: {"R1":13,"R2":0,"R3":0} },
-        { id: "nad-1000", name: "NAD+ 1000", price: 99, homiePrice: 49, stock: 13, warehouses: {"R1":13,"R2":0,"R3":0} },
-        { id: "vendor-bac-3ml", name: "Vendor Bac 3mL", price: 20, homiePrice: 10, stock: 77, warehouses: {"R1":14,"R2":3,"R3":60} },
-        { id: "semax-30", name: "Semax 30", price: 79, homiePrice: 59, stock: 17, warehouses: {"R1":17,"R2":0,"R3":0} },
-        { id: "r-10", name: "R-10", price: 79, homiePrice: 55, stock: 18, warehouses: {"R1":18,"R2":0,"R3":0} },
-        { id: "r-5", name: "R-5", price: 59, homiePrice: 39, stock: 19, warehouses: {"R1":19,"R2":0,"R3":0} },
-        { id: "ghkcu100", name: "GHKCU100", price: 49, homiePrice: 39, stock: 52, warehouses: {"R1":34,"R2":8,"R3":10} },
         { id: "vendor-bac-10ml", name: "Vendor Bac 10mL", price: 30, homiePrice: 20, stock: 74, warehouses: {"R1":38,"R2":9,"R3":27} },
-        { id: "r-20", name: "R-20", price: 109, homiePrice: 85, stock: 89, warehouses: {"R1":50,"R2":0,"R3":39} }
+        { id: "vendor-bac-30ml", name: "Vendor Bac 30mL", price: 0, homiePrice: 0, stock: 25, warehouses: {"R1":0,"R2":0,"R3":25} },
+        { id: "vendor-bac-3ml", name: "Vendor Bac 3mL", price: 20, homiePrice: 10, stock: 77, warehouses: {"R1":14,"R2":3,"R3":60} },
+        { id: "wolverine-10", name: "Wolverine 10", price: 69, homiePrice: 49, stock: 0, warehouses: {"R1":0,"R2":0,"R3":0} }
       ];
       products.sort(function (a, b) { return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }); });
       var quantities = {};
@@ -565,14 +606,16 @@
       var activeView = "grid";
       var selectedVariants = {};
       var familyDefinitions = [
-        { key: "reta", name: "RT", matches: function (product) { return /^R-(5|10|15|20|30|60)$/i.test(product.name); } },
+        { key: "reta", name: "RT", matches: function (product) { return /^R-\d+(?:\.\d+)?$/i.test(product.name); } },
         { key: "tirz", name: "Tirz", matches: function (product) { return /^T-(\d+)$/i.test(product.name); } },
-        { key: "tesa", name: "Tesa", matches: function (product) { return /^Tesa(5|10)$/i.test(product.name); } },
-        { key: "selank", name: "Selank", matches: function (product) { return /^Selank (10|30)$/i.test(product.name); } },
-        { key: "semax", name: "Semax", matches: function (product) { return /^Semax (10|30)$/i.test(product.name); } },
-        { key: "ss31", name: "SS-31", matches: function (product) { return /^SS-31 (10|50)$/i.test(product.name); } },
-        { key: "bac", name: "B-Water", matches: function (product) { return /^Vendor Bac (3mL|10mL)$/i.test(product.name); } },
-        { key: "test", name: "Test", matches: function (product) { return /^Test(C|E)250$/i.test(product.name); } }
+        { key: "tesa", name: "Tesa", matches: function (product) { return /^Tesa\d+(?:\.\d+)?$/i.test(product.name); } },
+        { key: "selank", name: "Selank", matches: function (product) { return /^Selank \d+(?:\.\d+)?$/i.test(product.name); } },
+        { key: "semax", name: "Semax", matches: function (product) { return /^Semax \d+(?:\.\d+)?$/i.test(product.name); } },
+        { key: "ss31", name: "SS-31", matches: function (product) { return /^SS-31 \d+(?:\.\d+)?$/i.test(product.name); } },
+        { key: "mots", name: "Mots", matches: function (product) { return /^Mots\d+(?:\.\d+)?$/i.test(product.name); } },
+        { key: "nad", name: "NAD+", matches: function (product) { return /^NAD\+ \d+(?:\.\d+)?$/i.test(product.name); } },
+        { key: "bac", name: "B-Water", matches: function (product) { return /^Vendor Bac \d+(?:\.\d+)?mL$/i.test(product.name); } },
+        { key: "test", name: "Test", matches: function (product) { return /^Test(C|E)\d+(?:\.\d+)?$/i.test(product.name); } }
       ];
       var productGroups = buildProductGroups();
 var kitDefinitions = [
@@ -663,6 +706,16 @@ var kitDefinitions = [
       var orderNumberField = document.getElementById("orderNumberField");
       var orderItemsField = document.getElementById("orderItemsField");
       var orderTotalField = document.getElementById("orderTotalField");
+      var cartButton = document.getElementById("cartButton");
+      var cartCountLabel = document.getElementById("cartCountLabel");
+      var cartButtonTotal = document.getElementById("cartButtonTotal");
+      var cartBackdrop = document.getElementById("cartBackdrop");
+      var cartDrawer = document.getElementById("cartDrawer");
+      var closeCartButton = document.getElementById("closeCart");
+      var continueShopping = document.getElementById("continueShopping");
+      var continueCheckout = document.getElementById("continueCheckout");
+      var checkoutFlow = document.getElementById("checkoutFlow");
+      var backToShopping = document.getElementById("backToShopping");
       var deliveryMethodInputs = document.querySelectorAll('input[name="delivery_method"]');
       var addressPanel = document.getElementById("addressPanel");
       var addressFields = addressPanel.querySelectorAll("input, select, textarea");
@@ -723,12 +776,14 @@ var kitDefinitions = [
         if ((match = name.match(/^(?:Testosterone Cypionate|TestC)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "TestC" + match[1];
         if ((match = name.match(/^(?:Testosterone Enanthate|TestE)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "TestE" + match[1];
         if ((match = name.match(/^(?:Bacteriostatic Water|Vendor Bac)\s*(\d+(?:\.\d+)?)\s*mL$/i))) return "Vendor Bac " + match[1] + "mL";
-        if ((match = name.match(/^(?:hCG|HCG)\s*(\d+(?:\.\d+)?)\s*K$/i))) return "HCG " + match[1] + "K";
+        if ((match = name.match(/^(?:hCG|HCG|G)\s*(\d+(?:\.\d+)?)\s*K$/i))) return "G" + match[1] + "K";
         if ((match = name.match(/^(?:GHK-Cu|GHKCU)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "GHKCU" + match[1];
         if ((match = name.match(/^(?:MOTS-C|Mots)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "Mots" + match[1];
         if ((match = name.match(/^(?:Melanotan II|MT-?2)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "MT-2 " + match[1];
         if ((match = name.match(/^(?:Thymosin Alpha-1|TA-?1)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "TA-1 " + match[1];
         if ((match = name.match(/^(?:Epithalon|Epitalon)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "Epitalon " + match[1];
+        if ((match = name.match(/^(?:TB-?500|BT)\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "BT" + match[1];
+        if (/^(?:Bacteriostatic Water|Vendor Bac)\s*30\s*mL(?:\s*\(Hospira\))?$/i.test(name)) return "Vendor Bac 30mL";
         if ((match = name.match(/^KLOW\s*(\d+(?:\.\d+)?)\s*(?:mg)?$/i))) return "Klow " + match[1];
         if (/^CJC \(no DAC\)\/IPA\b/i.test(name)) return name;
         return name.replace(/\s+(mg|IU)$/i, "").replace(/^Wolverine Peptide\b/i, "Wolverine");
@@ -753,37 +808,71 @@ var kitDefinitions = [
       function warehouseMap(text, stockColumn) {
         var rows = parseCsv(text);
         var stock = {};
+        var names = {};
         rows.slice(1).forEach(function (row) {
           var name = String(row[0] || "").trim();
           var key;
           if (!name || /^total\b/i.test(name)) return;
           key = productKey(name);
           stock[key] = (stock[key] || 0) + Math.max(0, Math.floor(parseCatalogNumber(row[stockColumn])));
+          names[key] = names[key] || canonicalWebsiteName(name);
         });
-        return stock;
+        return { stock: stock, names: names };
       }
 
       function buildLiveCatalog(responses) {
         var pricingRows = parseCsv(responses[0]);
         var headers = pricingRows.shift() || [];
         var columns = {};
-        var r1 = warehouseMap(responses[1], LIVE_SHEETS.warehouses.R1.stockColumn);
-        var r2 = warehouseMap(responses[2], LIVE_SHEETS.warehouses.R2.stockColumn);
-        var r3 = warehouseMap(responses[3], LIVE_SHEETS.warehouses.R3.stockColumn);
+        var warehouses = {
+          R1: warehouseMap(responses[1], LIVE_SHEETS.warehouses.R1.stockColumn),
+          R2: warehouseMap(responses[2], LIVE_SHEETS.warehouses.R2.stockColumn),
+          R3: warehouseMap(responses[3], LIVE_SHEETS.warehouses.R3.stockColumn)
+        };
+        var pricing = {};
+        var keys = {};
         headers.forEach(function (header, index) { columns[String(header).trim()] = index; });
         if (columns["Item Name"] === undefined || columns["Retail Price"] === undefined || columns["Homie Price"] === undefined) {
           throw new Error("Pricing sheet columns changed");
         }
-        return pricingRows.map(function (row) {
+        pricingRows.forEach(function (row) {
           var name = canonicalWebsiteName(row[columns["Item Name"]]);
           var key = productKey(name);
-          var locations = { R1: r1[key] || 0, R2: r2[key] || 0, R3: r3[key] || 0 };
-          if (!Object.prototype.hasOwnProperty.call(r1, key)) locations.R1 = Math.max(0, Math.floor(parseCatalogNumber(row[columns.Stock])));
-          return {
-            id: productId(name),
+          if (!name) return;
+          keys[key] = true;
+          pricing[key] = {
             name: name,
             price: parseCatalogNumber(row[columns["Retail Price"]]),
             homiePrice: parseCatalogNumber(row[columns["Homie Price"]]),
+            fallbackStock: Math.max(0, Math.floor(parseCatalogNumber(row[columns.Stock])))
+          };
+        });
+        Object.keys(warehouses).forEach(function (warehouse) {
+          Object.keys(warehouses[warehouse].stock).forEach(function (key) { keys[key] = true; });
+        });
+        return Object.keys(keys).map(function (key) {
+          var priced = pricing[key] || {};
+          var name = priced.name;
+          if (!name) {
+            ["R1", "R2", "R3"].some(function (warehouse) {
+              name = warehouses[warehouse].names[key];
+              return Boolean(name);
+            });
+          }
+          var locations = {
+            R1: warehouses.R1.stock[key] || 0,
+            R2: warehouses.R2.stock[key] || 0,
+            R3: warehouses.R3.stock[key] || 0
+          };
+          var foundInAnyWarehouse = ["R1", "R2", "R3"].some(function (warehouse) {
+            return Object.prototype.hasOwnProperty.call(warehouses[warehouse].stock, key);
+          });
+          if (!foundInAnyWarehouse && priced.name) locations.R1 = priced.fallbackStock;
+          return {
+            id: productId(name),
+            name: name,
+            price: priced.price || 0,
+            homiePrice: priced.homiePrice || 0,
             stock: locations.R1 + locations.R2 + locations.R3,
             warehouses: locations
           };
@@ -856,6 +945,10 @@ var kitDefinitions = [
         return homiePricingApplied ? product.homiePrice : product.price;
       }
 
+      function isPriced(product) {
+        return currentPrice(product) > 0;
+      }
+
       function stockTier(product) {
         if (product.stock >= 10) return { label: "Well Stocked", className: "well" };
         if (product.stock >= 4) return { label: "Limited Stock", className: "limited" };
@@ -884,7 +977,8 @@ var kitDefinitions = [
         groups.sort(function (a, b) { return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" }); });
         groups.forEach(function (group) {
           if (!selectedVariants[group.key] || !group.variants.some(function (variant) { return variant.id === selectedVariants[group.key]; })) {
-            selectedVariants[group.key] = group.variants[0].id;
+            var preferred = group.variants.filter(function (variant) { return isPriced(variant) && variant.stock > 0; })[0] || group.variants[0];
+            selectedVariants[group.key] = preferred.id;
           }
         });
         return groups;
@@ -896,19 +990,29 @@ var kitDefinitions = [
 
       function displayProductName(product) {
         var match;
-        if (/^R-(5|10|15|20|30|60)$/i.test(product.name)) return product.name.toUpperCase();
-        match = product.name.match(/^Vendor Bac (3mL|10mL)$/i);
+        if (/^R-\d+(?:\.\d+)?$/i.test(product.name)) return product.name.toUpperCase() + " mg";
+        if (/^T-\d+(?:\.\d+)?$/i.test(product.name)) return product.name.toUpperCase() + " mg";
+        match = product.name.match(/^Vendor Bac (\d+(?:\.\d+)?mL)$/i);
         if (match) return "B-Water " + match[1];
+        match = product.name.match(/^G(\d+(?:\.\d+)?)K$/i);
+        if (match) return product.name.toUpperCase() + " · " + (Number(match[1]) * 1000).toLocaleString() + " IU";
+        if (/^Test(C|E)\d+(?:\.\d+)?$/i.test(product.name)) return product.name.replace(/(\d+(?:\.\d+)?)$/, "$1 mg");
+        if (/\b(?:mg|mL|IU)$/i.test(product.name)) return product.name;
+        if (/\d(?:\.\d+)?$/.test(product.name)) return product.name + " mg";
         return product.name;
       }
 
       function variantLabel(group, product) {
-        if (group.key === "selank") return product.name.replace(/^Selank\s*/i, "");
-        if (group.key === "semax") return product.name.replace(/^Semax\s*/i, "");
-        if (group.key === "ss31") return product.name.replace(/^SS-31\s*/i, "");
+        if (group.key === "reta" || group.key === "tirz") return product.name.replace(/^[A-Z]-/i, "") + " mg";
+        if (group.key === "tesa") return product.name.replace(/^Tesa\s*/i, "") + " mg";
+        if (group.key === "selank") return product.name.replace(/^Selank\s*/i, "") + " mg";
+        if (group.key === "semax") return product.name.replace(/^Semax\s*/i, "") + " mg";
+        if (group.key === "ss31") return product.name.replace(/^SS-31\s*/i, "") + " mg";
+        if (group.key === "mots") return product.name.replace(/^Mots\s*/i, "") + " mg";
+        if (group.key === "nad") return product.name.replace(/^NAD\+\s*/i, "") + " mg";
         if (group.key === "bac") return displayProductName(product);
-        if (group.key === "test") return product.name.replace(/^Test/i, "");
-        return product.name;
+        if (group.key === "test") return (/^TestC/i.test(product.name) ? "Cypionate · " : "Enanthate · ") + (product.name.match(/\d+(?:\.\d+)?$/) || [""])[0] + " mg";
+        return displayProductName(product);
       }
 
       function escapeHtml(value) {
@@ -940,6 +1044,9 @@ var kitDefinitions = [
           var tier = stockTier(product);
           var card = document.createElement("article");
           var hasVariants = group.variants.length > 1;
+          var priced = isPriced(product);
+          var canOrder = priced && product.stock > 0;
+          var cardTitle = hasVariants ? group.displayName : displayProductName(product);
           var searchNames = group.displayName + " " + group.variants.map(function (variant) { return displayProductName(variant); }).join(" ");
           var variantButtons = group.variants.map(function (variant) {
             var pressed = variant.id === product.id;
@@ -954,20 +1061,21 @@ var kitDefinitions = [
           card.setAttribute("data-stock-tier", tier.className);
           card.innerHTML =
             '<div class="product-top">' +
-              '<div class="product-identity">' + vialIcon() + '<div><h3 class="product-name">' + escapeHtml(group.displayName) + '</h3>' +
+              '<div class="product-identity">' + vialIcon() + '<div><h3 class="product-name">' + escapeHtml(cardTitle) + '</h3>' +
                 (hasVariants ? '<span class="variant-name">' + escapeHtml(displayProductName(product)) + '</span>' : '') +
-                '<p class="product-price">' + money(currentPrice(product)) + '</p></div></div>' +
+                '<p class="product-price' + (priced ? '' : ' price-pending') + '">' + (priced ? money(currentPrice(product)) : 'Pricing pending') + '</p></div></div>' +
               '<div class="stock-wrap"><span class="tier ' + tier.className + '">' + tier.label + '</span><span class="stock">' + product.stock + (product.stock === 1 ? ' unit' : ' units') + '</span></div>' +
             '</div>' +
             warehouseStockHtml(product) +
-            '<div class="variant-options"' + (hasVariants ? '' : ' hidden') + ' aria-label="' + escapeHtml(group.displayName) + ' variants">' + variantButtons + '</div>' +
+            (hasVariants ? '<div class="variant-prompt"><strong>Choose strength</strong><span>Price updates instantly</span></div>' : '') +
+            '<div class="variant-options' + (hasVariants ? ' is-choice' : '') + '"' + (hasVariants ? '' : ' hidden') + ' aria-label="Choose ' + escapeHtml(group.displayName) + ' strength">' + variantButtons + '</div>' +
             '<div class="product-actions">' +
               '<div class="quantity"><span class="quantity-label">Quantity</span><div class="stepper">' +
-                '<button type="button" data-action="decrease" aria-label="Decrease ' + escapeHtml(displayProductName(product)) + ' quantity">−</button>' +
-                '<input type="number" min="0" max="' + product.stock + '" value="' + quantities[product.id] + '" name="qty_' + escapeHtml(product.id) + '" aria-label="' + escapeHtml(displayProductName(product)) + ' quantity" inputmode="numeric" />' +
-                '<button type="button" data-action="increase" aria-label="Increase ' + escapeHtml(displayProductName(product)) + ' quantity">+</button>' +
+                '<button type="button" data-action="decrease" aria-label="Decrease ' + escapeHtml(displayProductName(product)) + ' quantity"' + (canOrder ? '' : ' disabled') + '>−</button>' +
+                '<input type="number" min="0" max="' + (canOrder ? product.stock : 0) + '" value="' + quantities[product.id] + '" name="qty_' + escapeHtml(product.id) + '" aria-label="' + escapeHtml(displayProductName(product)) + ' quantity" inputmode="numeric"' + (canOrder ? '' : ' disabled') + ' />' +
+                '<button type="button" data-action="increase" aria-label="Increase ' + escapeHtml(displayProductName(product)) + ' quantity"' + (canOrder ? '' : ' disabled') + '>+</button>' +
               '</div></div>' +
-              '<button class="add-button" type="button" data-action="add">Add</button>' +
+              '<button class="add-button" type="button" data-action="add"' + (canOrder ? '' : ' disabled') + '>' + (priced ? (product.stock ? 'Add to cart' : 'Out of stock') : 'Price pending') + '</button>' +
             '</div>';
 
           var input = card.querySelector("input");
@@ -982,6 +1090,7 @@ var kitDefinitions = [
 
             var actionButton = event.target.closest("[data-action]");
             if (!actionButton) return;
+            if (!canOrder) return;
             var action = actionButton.getAttribute("data-action");
             var current = quantities[product.id];
             quantities[product.id] = action === "decrease" ? Math.max(0, current - 1) : Math.min(product.stock, current + 1);
@@ -1082,28 +1191,78 @@ var kitDefinitions = [
       }
 
       function updateSummary() {
-        var selected = products.filter(function (product) { return quantities[product.id] > 0; });
+        var selected = products.filter(function (product) { return quantities[product.id] > 0 && isPriced(product); });
         var total = 0;
+        var itemCount = 0;
         summaryList.innerHTML = "";
 
         if (!selected.length) {
           summaryList.className = "summary-empty";
-          summaryList.textContent = "No items selected";
+          summaryList.textContent = "Your cart is empty";
         } else {
           summaryList.className = "";
           selected.forEach(function (product) {
             var quantity = quantities[product.id];
             var lineTotal = currentPrice(product) * quantity;
             total += lineTotal;
+            itemCount += quantity;
             var row = document.createElement("div");
             row.className = "summary-item";
-            row.innerHTML = '<span>' + quantity + ' × ' + escapeHtml(displayProductName(product)) + '</span><span>' + money(lineTotal) + '</span>';
+            row.innerHTML = '<span class="summary-copy"><strong>' + escapeHtml(displayProductName(product)) + '</strong><small>' + quantity + ' × ' + money(currentPrice(product)) + '</small></span>' +
+              '<span class="summary-price">' + money(lineTotal) + '</span>' +
+              '<button class="summary-remove" type="button" data-remove-product="' + escapeHtml(product.id) + '">Remove</button>';
             summaryList.appendChild(row);
           });
         }
         orderTotal.value = money(total);
         orderTotal.textContent = money(total);
+        cartButtonTotal.textContent = money(total);
+        cartCountLabel.textContent = itemCount + (itemCount === 1 ? " item" : " items");
+        cartButton.hidden = itemCount === 0;
+        continueCheckout.disabled = itemCount === 0;
       }
+
+      summaryList.addEventListener("click", function (event) {
+        var removeButton = event.target.closest("[data-remove-product]");
+        if (!removeButton) return;
+        quantities[removeButton.getAttribute("data-remove-product")] = 0;
+        renderProducts();
+        filterProducts();
+        updateSummary();
+      });
+
+      function openCart() {
+        if (cartButton.hidden) return;
+        cartBackdrop.hidden = false;
+        cartDrawer.classList.add("open");
+        cartDrawer.setAttribute("aria-hidden", "false");
+        cartButton.setAttribute("aria-expanded", "true");
+        document.body.classList.add("cart-open");
+        closeCartButton.focus();
+      }
+
+      function closeCart() {
+        cartDrawer.classList.remove("open");
+        cartDrawer.setAttribute("aria-hidden", "true");
+        cartButton.setAttribute("aria-expanded", "false");
+        cartBackdrop.hidden = true;
+        document.body.classList.remove("cart-open");
+      }
+
+      cartButton.addEventListener("click", openCart);
+      closeCartButton.addEventListener("click", closeCart);
+      continueShopping.addEventListener("click", closeCart);
+      cartBackdrop.addEventListener("click", closeCart);
+      document.addEventListener("keydown", function (event) { if (event.key === "Escape" && cartDrawer.classList.contains("open")) closeCart(); });
+      continueCheckout.addEventListener("click", function () {
+        checkoutFlow.hidden = false;
+        closeCart();
+        checkoutFlow.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      backToShopping.addEventListener("click", function () {
+        checkoutFlow.hidden = true;
+        document.getElementById("products-title").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
 
       couponCode.addEventListener("input", updatePriceTier);
 
@@ -1162,7 +1321,7 @@ var kitDefinitions = [
       });
 
       function selectedProducts() {
-        return products.filter(function (product) { return quantities[product.id] > 0; });
+        return products.filter(function (product) { return quantities[product.id] > 0 && isPriced(product); });
       }
 
       function createOrderNumber() {

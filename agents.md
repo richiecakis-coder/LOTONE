@@ -4,7 +4,7 @@ Instructions for AI coding assistants (Claude, ChatGPT/Codex, Cursor, GitHub Cop
 
 ## What this is
 
-A single-page order form for **LOT ONE** (live at https://lot-one.org, hosted on Netlify). Customers browse single vials, pick quantities, enter contact/delivery/payment details, upload a payment screenshot, and submit. The order is emailed to the owner.
+A single-page order form for **LOT ONE** (live at https://lot-one.org, hosted on GitHub Pages). Customers browse single vials, add products to a cart, enter contact/delivery/payment details, upload a payment screenshot, and submit. The order is emailed to the owner.
 
 ## Project layout
 
@@ -16,11 +16,12 @@ site.webmanifest    Web app manifest (name, icons, theme colors)
 AGENTS.md           This file
 ```
 
-There is **no build step, no framework, no package.json**. Netlify publishes the repository root as static files. Do not add a bundler, framework or dependencies unless the owner explicitly asks for it.
+There is **no build step, no framework, no package.json**. GitHub Pages publishes the repository root as static files. Do not add a bundler, framework or dependencies unless the owner explicitly asks for it.
 
 ## How the page works (in `index.html`)
 
-- **Products** — the `products` array near the top of the `<script>` is the fallback catalog (`id`, `name`, `price`, `homiePrice`, `stock`, `warehouses`). On load, the page fetches the published pricing sheet plus the R1, R2, and R3 inventory sheets, keeps the website's established short product names, and replaces the fallback if all four reads succeed. The pricing sheet controls the orderable catalog and price tiers; warehouse sheets control stock. `.github/scripts/sync_inventory.py` refreshes the embedded fallback and `products.json` on schedule.
+- **Products** — the `products` array near the top of the `<script>` is the fallback catalog (`id`, `name`, `price`, `homiePrice`, `stock`, `warehouses`). On load, the page fetches the published pricing sheet plus the R1, R2, and R3 inventory sheets, keeps the website's established short product names, and replaces the fallback if all four reads succeed. The pricing sheet controls prices; the union of all warehouse sheets controls the available catalog and stock. Stocked items without approved prices remain visible as `Pricing pending` and cannot be added to the cart. `.github/scripts/sync_inventory.py` refreshes the embedded fallback and `products.json` on schedule.
+- **Cart and checkout** — quantities update the floating cart button and side drawer. `Continue to checkout` reveals the contact, delivery, payment, proof, and confirmation sections. Keep pending-price and out-of-stock items disabled.
 - **Coupon** — entering the discount code (see the coupon handler around `couponCode.value`) switches prices from `price` to `homiePrice`. The selected tier is sent in the hidden `pricing_tier` field.
 - **Order submission** — the `<form id="orderForm">` posts (multipart, with the payment proof image) to FormSubmit (`action="https://formsubmit.co/..."`). JS fills the hidden fields `order_number`, `order_items` and `order_total` before submit, then shows the `#confirmation` panel.
 - **Delivery** — "Shipping" shows the `#addressPanel` and makes the address fields required; "Local Pickup" hides it.
@@ -53,8 +54,8 @@ Rules to preserve:
 
 ## Testing
 
-Open `index.html` in a browser, or run `netlify dev` from the repo root to preview. Check: products load, search and stock filters work, the coupon switches prices, the delivery choice toggles the address section, and the form validates required fields.
+Open `index.html` in a browser, or run a local static server from the repo root. Check: products load, strength selection updates prices, search and stock filters work, cart and checkout transitions work, the coupon switches prices, the delivery choice toggles the address section, and the form validates required fields.
 
 ## Deploying
 
-Pushing to the `main` branch deploys to production on Netlify automatically.
+Pushing to the `main` branch deploys to production through GitHub Pages.
