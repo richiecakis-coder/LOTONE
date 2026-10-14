@@ -39,7 +39,7 @@
     "name": "Semax 10",
     "price": 49,
     "homiePrice": 29,
-    "stock": 2
+    "stock": 1
   },
   {
     "id": "dsip-15",
@@ -201,5 +201,12 @@
     "price": 109,
     "homiePrice": 85,
     "stock": 50
+  },
+  {
+    "id": "cjc-no-dac-ipa-5-5-mg",
+    "name": "CJC (no DAC)/IPA 5/5 mg",
+    "price": 0,
+    "homiePrice": 0,
+    "stock": 8
   }
 ]
