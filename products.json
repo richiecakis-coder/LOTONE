@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T01:40:38.218032+00:00",
+  "updatedAt": "2026-10-15T07:01:36.277708+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -282,9 +282,9 @@
       "name": "Selank 30",
       "price": 79,
       "homiePrice": 59,
-      "stock": 25,
+      "stock": 24,
       "warehouses": {
-        "R1": 10,
+        "R1": 9,
         "R2": 0,
         "R3": 15
       }
@@ -306,9 +306,9 @@
       "name": "Semax 30",
       "price": 79,
       "homiePrice": 59,
-      "stock": 17,
+      "stock": 16,
       "warehouses": {
-        "R1": 17,
+        "R1": 16,
         "R2": 0,
         "R3": 0
       }
