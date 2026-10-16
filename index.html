@@ -7,7 +7,7 @@
   <link rel="icon" href="icons/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <title>LOT ONE | Single Vial Orders</title>
+  <title>LOT ONE | Product Catalog</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap');
     :root {
@@ -282,7 +282,7 @@
     }
     @media(max-width:650px){
       .panel{padding:16px 12px}.section-head{margin-bottom:14px}.catalog-primary{align-items:stretch}.view-button span{display:none}.view-button{padding-inline:8px}.catalog-secondary{align-items:flex-start}.stock-filters{display:flex;flex-wrap:wrap}.filter-pill{min-height:31px;padding:7px 9px;font-size:10px;white-space:nowrap}
-      .family-filters{gap:5px}.family-pill{padding:7px 9px}.result-count{padding-top:8px}
+      .family-filters{flex-wrap:nowrap;gap:5px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:none}.family-filters::-webkit-scrollbar{display:none}.family-pill{flex:0 0 auto;padding:7px 9px;scroll-snap-align:start}.result-count{padding-top:8px}
       .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.product-card{min-height:226px;padding:9px;gap:8px}.product-identity{gap:6px}.vial-motif{width:20px;height:34px}.product-name{font-size:12px}.product-price{font-size:15px}.variant-pill{padding:5px 6px;font-size:9px}.product-actions{grid-template-columns:1fr}.add-button{width:100%}.stepper{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
       .product-grid[data-view="list"] .product-card{min-height:156px}.product-grid[data-view="list"] .variant-options{gap:7px}.product-grid[data-view="list"] .variant-pill{padding:6px 9px}.product-grid[data-view="list"] .stepper{width:min(132px,100%)}.product-grid[data-view="list"] .add-button{width:auto}
     }
@@ -312,11 +312,11 @@
       <div class="intro catalog-intro">
         <div>
           <p class="eyebrow">LOT ONE product catalog</p>
-          <h1 id="page-title">Single Vial Catalog</h1>
-          <p class="intro-copy">Current products, strengths, and retail pricing.</p>
+          <h1 id="page-title">Product Catalog</h1>
+          <p class="intro-copy">Single vials and 10-vial packs, with current strengths and pricing.</p>
           <div class="catalog-meta" aria-label="Catalog status">
             <span class="live-status"><i aria-hidden="true"></i>Live inventory</span>
-            <span><strong id="listedProducts">39</strong> products</span>
+            <span><strong id="listedProducts">47</strong> catalog options</span>
             <span id="inventoryUpdated">Updated Oct 14, 1:52 PM</span>
           </div>
         </div>
@@ -331,8 +331,8 @@
       <input type="hidden" name="_subject" value="New LOT ONE order" />
       <section class="panel" aria-labelledby="products-title">
         <div class="section-head">
-          <h2 id="products-title">Single vials</h2>
-          <span>No kits</span>
+          <h2 id="products-title">Products</h2>
+          <span>Single vials &amp; 10-vial packs</span>
         </div>
         <div class="catalog-tools">
           <div class="catalog-primary">
@@ -351,18 +351,8 @@
               </button>
             </div>
           </div>
-          <div class="family-filters" aria-label="Filter by product family">
-            <button class="family-pill" type="button" data-family-filter="all" aria-pressed="true">All</button>
-            <button class="family-pill" type="button" data-family-filter="reta" aria-pressed="false">RT</button><button class="family-pill" type="button" data-family-filter="tirz" aria-pressed="false">Tirz</button>
-            <button class="family-pill" type="button" data-family-filter="tesa" aria-pressed="false">Tesa</button>
-            <button class="family-pill" type="button" data-family-filter="selank" aria-pressed="false">Selank</button>
-            <button class="family-pill" type="button" data-family-filter="semax" aria-pressed="false">Semax</button>
-            <button class="family-pill" type="button" data-family-filter="ss31" aria-pressed="false">SS-31</button>
-            <button class="family-pill" type="button" data-family-filter="mots" aria-pressed="false">Mots</button>
-            <button class="family-pill" type="button" data-family-filter="nad" aria-pressed="false">NAD+</button>
-            <button class="family-pill" type="button" data-family-filter="bac" aria-pressed="false">B-Water</button>
-            <button class="family-pill" type="button" data-family-filter="test" aria-pressed="false">Test</button>
-            <button class="family-pill" type="button" data-family-filter="singles" aria-pressed="false">Singles</button><button class="family-pill" type="button" data-family-filter="kits" aria-pressed="false">Kits</button>
+          <div id="familyFilters" class="family-filters" aria-label="Filter by product">
+            <button class="family-pill" type="button" data-family-filter="all" aria-pressed="true">All products</button>
           </div>
           <div class="catalog-secondary">
             <div class="stock-filters" aria-label="Filter products by stock level">
@@ -371,11 +361,11 @@
               <button class="filter-pill" type="button" data-stock-filter="limited" aria-pressed="false">Limited 4–9</button>
               <button class="filter-pill" type="button" data-stock-filter="low" aria-pressed="false">Low ≤3</button>
             </div>
-            <span id="resultCount" class="result-count" aria-live="polite">18 groups</span>
+            <span id="resultCount" class="result-count" aria-live="polite">Loading products…</span>
           </div>
         </div>
         <div id="productGrid" class="product-grid" data-view="grid" aria-label="Available single vials"></div>
-        <div id="kitsGrid" class="product-grid" data-view="grid" aria-label="Available kits" hidden></div>
+        <div id="kitsGrid" class="product-grid" data-view="grid" aria-label="Available 10-vial packs" hidden></div>
       </section>
 
       <button id="cartButton" class="cart-button" type="button" aria-controls="cartDrawer" aria-expanded="false" hidden>
@@ -524,12 +514,12 @@
 
   <div id="kitModal" class="kit-modal" hidden>
         <div class="kit-modal-card" role="dialog" aria-modal="true" aria-labelledby="kitModalTitle">
-          <h3 id="kitModalTitle">Kit inquiry</h3>
-          <p class="kit-modal-sub">Tell us which kit you want — we confirm availability and your price within 24 hours.</p>
+          <h3 id="kitModalTitle">10-vial pack inquiry</h3>
+          <p class="kit-modal-sub">Tell us which 10-vial pack you want — we confirm availability and your price within 24 hours.</p>
           <form id="kitInquiryForm" action="https://formsubmit.co/buymj@yahoo.com" method="POST">
-            <input type="hidden" name="_subject" value="LOT ONE kit inquiry" />
+            <input type="hidden" name="_subject" value="LOT ONE 10-vial pack inquiry" />
             <input type="hidden" name="_template" value="table" />
-            <div class="field"><label for="kitInquiryKit">Kit</label><input id="kitInquiryKit" name="Kit" type="text" readonly tabindex="-1" /></div>
+            <div class="field"><label for="kitInquiryKit">10-vial pack</label><input id="kitInquiryKit" name="Pack" type="text" readonly tabindex="-1" /></div>
             <div class="field"><label for="kitInquiryName">Your name <span class="req">*</span></label><input id="kitInquiryName" name="Name" type="text" required autocomplete="name" /></div>
             <div class="field"><label for="kitInquiryPhone">Phone <span class="req">*</span></label><input id="kitInquiryPhone" name="Phone" type="tel" required autocomplete="tel" /></div>
             <div class="kit-modal-actions">
@@ -639,14 +629,14 @@ var kitDefinitions = [
           card.innerHTML =
             '<div class="product-top">' +
             '<div class="product-identity">' + vialIcon() + '<div><h3 class="product-name">' + escapeHtml(kit.name) + '</h3>' +
-            '<p class="kit-note">10-vial kit' + tagHtml + '</p></div></div>' +
+            '<p class="kit-note">10-vial pack' + tagHtml + '</p></div></div>' +
             '</div>' +
             '<div class="product-actions"><button type="button" class="kit-inquire" data-kit-name="' + escapeHtml(kit.name) + '">Inquire</button></div>';
           kitsGrid.appendChild(card);
         });
       }
       function openKitModal(kitName) {
-        kitInquiryKit.value = kitName + " \u2014 10-vial kit";
+        kitInquiryKit.value = kitName + " \u2014 10-vial pack";
         kitModal.hidden = false;
         document.body.style.overflow = "hidden";
       }
@@ -672,7 +662,7 @@ var kitDefinitions = [
       var productGrid = document.getElementById("productGrid");
       var productSearch = document.getElementById("productSearch");
       var stockFilterButtons = document.querySelectorAll("[data-stock-filter]");
-      var familyFilterButtons = document.querySelectorAll("[data-family-filter]");
+      var familyFilters = document.getElementById("familyFilters");
       var viewButtons = document.querySelectorAll("[data-view]");
       var resultCount = document.getElementById("resultCount");
       var listedProducts = document.getElementById("listedProducts");
@@ -886,7 +876,7 @@ var kitDefinitions = [
 
       function updateInventoryStats(checkedAt) {
         var date = checkedAt || new Date();
-        listedProducts.textContent = products.length.toLocaleString();
+        listedProducts.textContent = (products.length + kitDefinitions.length).toLocaleString();
         inventoryUpdated.textContent = "Updated " + date.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + ", " + date.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
       }
 
@@ -896,6 +886,7 @@ var kitDefinitions = [
         products.sort(function (a, b) { return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }); });
         selectedVariants = {};
         productGroups = buildProductGroups();
+        renderFamilyFilters();
         renderProducts();
         filterProducts();
         updateSummary();
@@ -982,6 +973,19 @@ var kitDefinitions = [
         return group.variants.filter(function (variant) { return variant.id === selectedVariants[group.key]; })[0] || group.variants[0];
       }
 
+      function renderFamilyFilters() {
+        var availableKeys = productGroups.map(function (group) { return group.key; });
+        if (activeFamilyFilter !== "all" && activeFamilyFilter !== "packs" && availableKeys.indexOf(activeFamilyFilter) === -1) {
+          activeFamilyFilter = "all";
+        }
+        familyFilters.innerHTML =
+          '<button class="family-pill" type="button" data-family-filter="all" aria-pressed="' + (activeFamilyFilter === "all" ? "true" : "false") + '">All products</button>' +
+          productGroups.map(function (group) {
+            return '<button class="family-pill" type="button" data-family-filter="' + escapeHtml(group.key) + '" aria-pressed="' + (activeFamilyFilter === group.key ? "true" : "false") + '">' + escapeHtml(group.displayName) + '</button>';
+          }).join("") +
+          '<button class="family-pill" type="button" data-family-filter="packs" aria-pressed="' + (activeFamilyFilter === "packs" ? "true" : "false") + '">10-vial packs</button>';
+      }
+
       function displayProductName(product) {
         var match;
         if (/^R-\d+(?:\.\d+)?$/i.test(product.name)) return product.name.toUpperCase() + " mg";
@@ -1051,7 +1055,7 @@ var kitDefinitions = [
           card.className = "product-card family-" + group.category;
           card.setAttribute("data-group-key", group.key);
           card.setAttribute("data-product-name", searchNames.toLowerCase());
-          card.setAttribute("data-family", group.category);
+          card.setAttribute("data-family", group.key);
           card.setAttribute("data-stock-tier", tier.className);
           card.innerHTML =
             '<div class="product-top">' +
@@ -1103,6 +1107,14 @@ var kitDefinitions = [
       }
 
       function filterProducts() {
+        if (activeFamilyFilter === "packs") {
+          productGrid.hidden = true;
+          kitsGrid.hidden = false;
+          resultCount.textContent = kitDefinitions.length + " 10-vial packs";
+          return;
+        }
+        productGrid.hidden = false;
+        kitsGrid.hidden = true;
         var query = productSearch.value.trim().toLowerCase();
         var cards = productGrid.querySelectorAll(".product-card");
         var shown = 0;
@@ -1122,7 +1134,7 @@ var kitDefinitions = [
           empty.textContent = "No product groups match these filters.";
           productGrid.appendChild(empty);
         }
-        resultCount.textContent = shown + (shown === 1 ? " group" : " groups");
+        resultCount.textContent = shown + (shown === 1 ? " product line" : " product lines");
       }
 
       productSearch.addEventListener("input", filterProducts);
@@ -1135,21 +1147,14 @@ var kitDefinitions = [
           filterProducts();
         });
       });
-      Array.prototype.forEach.call(familyFilterButtons, function (button) {
-        button.addEventListener("click", function () {
-          activeFamilyFilter = button.getAttribute("data-family-filter");
-          Array.prototype.forEach.call(familyFilterButtons, function (option) {
-            option.setAttribute("aria-pressed", option === button ? "true" : "false");
-          });
-          var showingKits = activeFamilyFilter === "kits";
-          productGrid.hidden = showingKits;
-          kitsGrid.hidden = !showingKits;
-          if (showingKits) {
-            resultCount.textContent = kitDefinitions.length + " kits";
-          } else {
-            filterProducts();
-          }
+      familyFilters.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-family-filter]");
+        if (!button) return;
+        activeFamilyFilter = button.getAttribute("data-family-filter");
+        Array.prototype.forEach.call(familyFilters.querySelectorAll("[data-family-filter]"), function (option) {
+          option.setAttribute("aria-pressed", option === button ? "true" : "false");
         });
+        filterProducts();
       });
       Array.prototype.forEach.call(viewButtons, function (button) {
         button.addEventListener("click", function () {
@@ -1384,7 +1389,9 @@ var kitDefinitions = [
       });
 
       renderKits();
+      renderFamilyFilters();
       renderProducts();
+      filterProducts();
       updateSummary();
       updateDeliveryMethod();
       updateInventoryStats();
