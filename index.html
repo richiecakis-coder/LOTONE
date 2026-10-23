@@ -235,11 +235,11 @@
 
     .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
     .product-card{--family-accent:#27d8ff;display:flex;flex-direction:column;gap:10px;min-height:242px;padding:12px;border-radius:9px;background:linear-gradient(145deg,color-mix(in srgb,var(--family-accent) 8%,rgba(9,29,51,.95)),rgba(3,13,26,.98)) padding-box,linear-gradient(135deg,color-mix(in srgb,var(--family-accent) 88%,white 12%),color-mix(in srgb,var(--family-accent) 28%,transparent) 48%,rgba(0,92,255,.55)) border-box;box-shadow:inset 0 1px 0 rgba(222,252,255,.08),inset 0 0 24px color-mix(in srgb,var(--family-accent) 7%,transparent),0 0 13px color-mix(in srgb,var(--family-accent) 11%,transparent)}
-    .product-card.family-reta{--family-accent:#27d8ff}.product-card.family-tirz{--family-accent:#b4ff2e}.product-card.family-tesa{--family-accent:#b47cff}.product-card.family-selank{--family-accent:#42df91}.product-card.family-semax{--family-accent:#ff8f3d}.product-card.family-ss31{--family-accent:#ff5d9a}.product-card.family-test{--family-accent:#f4cf4f}.product-card.family-bac{--family-accent:#7da7ff}.product-card.family-singles{--family-accent:#27d8ff}.product-card.family-kits{--family-accent:#ff6b6b}
+    .product-card.family-reta{--family-accent:#27d8ff}.product-card.family-tirz{--family-accent:#b4ff2e}.product-card.family-tesa{--family-accent:#b47cff}.product-card.family-selank{--family-accent:#42df91}.product-card.family-semax{--family-accent:#ff8f3d}.product-card.family-ss31{--family-accent:#ff5d9a}.product-card.family-test{--family-accent:#f4cf4f}.product-card.family-bac{--family-accent:#7da7ff}.product-card.family-singles{--family-accent:#27d8ff}.product-card.family-kits{--family-accent:#75ffd0}
     .product-grid[hidden]{display:none}
-    .kit-note{margin:7px 0 0;color:var(--muted);font-size:13px}
-    .kit-tag{color:var(--accent-strong);font-weight:700}
-    .product-actions .kit-inquire{width:100%;border:1px solid var(--line-bright);background:var(--accent-soft);color:var(--ink);border-radius:9px;padding:13px;font:700 15px "Manrope",sans-serif;cursor:pointer}
+    .kit-note{display:inline-flex;align-items:center;gap:6px;margin:6px 0 0;color:#bfffe9;font-size:11px;font-weight:800}.kit-note::before{content:"";width:6px;height:6px;border-radius:50%;background:#75ffd0;box-shadow:0 0 9px rgba(117,255,208,.75)}
+    .pack-filter{border-color:rgba(117,255,208,.62);color:#bfffe9}.pack-card .stock{color:#bfffe9}.pack-card .variant-name{color:#dce9f3}.pack-card .variant-options.is-choice{border-color:rgba(117,255,208,.42)}
+    .pack-card .variant-options.is-choice .variant-pill[aria-pressed="true"]{background:linear-gradient(135deg,#baffdf,#75ffd0);color:#03241c;box-shadow:0 0 18px rgba(117,255,208,.3)}
     .kit-modal{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(2,8,18,.74)}
     .kit-modal[hidden]{display:none}
     .kit-modal-card{width:min(430px,100%);background:var(--surface);border:1px solid var(--line-bright);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
@@ -512,24 +512,6 @@
     </section>
   </main>
 
-  <div id="kitModal" class="kit-modal" hidden>
-        <div class="kit-modal-card" role="dialog" aria-modal="true" aria-labelledby="kitModalTitle">
-          <h3 id="kitModalTitle">10-vial pack inquiry</h3>
-          <p class="kit-modal-sub">Tell us which 10-vial pack you want — we confirm availability and your price within 24 hours.</p>
-          <form id="kitInquiryForm" action="https://formsubmit.co/buymj@yahoo.com" method="POST">
-            <input type="hidden" name="_subject" value="LOT ONE 10-vial pack inquiry" />
-            <input type="hidden" name="_template" value="table" />
-            <div class="field"><label for="kitInquiryKit">10-vial pack</label><input id="kitInquiryKit" name="Pack" type="text" readonly tabindex="-1" /></div>
-            <div class="field"><label for="kitInquiryName">Your name <span class="req">*</span></label><input id="kitInquiryName" name="Name" type="text" required autocomplete="name" /></div>
-            <div class="field"><label for="kitInquiryPhone">Phone <span class="req">*</span></label><input id="kitInquiryPhone" name="Phone" type="tel" required autocomplete="tel" /></div>
-            <div class="kit-modal-actions">
-              <button type="button" id="kitModalCancel" class="kit-cancel">Cancel</button>
-              <button type="submit" class="submit">Send inquiry</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
 <script>
     (function () {
       "use strict";
@@ -604,58 +586,95 @@
         { key: "bac", name: "B-Water", matches: function (product) { return /^Vendor Bac \d+(?:\.\d+)?mL$/i.test(product.name); } },
         { key: "test", name: "Test", matches: function (product) { return /^Test(C|E)\d+(?:\.\d+)?$/i.test(product.name); } }
       ];
-      var productGroups = buildProductGroups();
-var kitDefinitions = [
-        { key: "kit-reta", name: "RT", tag: "Most popular" },
-        { key: "kit-tesa", name: "Tesa", tag: "" },
-        { key: "kit-wolverine", name: "Wolverine 10", tag: "" },
-        { key: "kit-semax", name: "Semax", tag: "" },
-        { key: "kit-tirz", name: "Tirz", tag: "" },
-        { key: "kit-test", name: "Test", tag: "" },
-        { key: "kit-ghk", name: "GHK-Cu", tag: "" },
-        { key: "kit-selank", name: "Selank", tag: "" }
+      var packProducts = [
+        { id: "pack-5-amino-1mq-50", familyName: "5-Amino-1MQ", strength: "50 mg/vial", price: 218, homiePrice: 218, stock: 2, isPack: true },
+        { id: "pack-ahk-cu-100", familyName: "AHK-Cu", strength: "100 mg/vial", price: 168, homiePrice: 168, stock: 1, isPack: true },
+        { id: "pack-bpc-tb-5-5", familyName: "BPC-157 + TB-500 Blend", strength: "5 mg + 5 mg/vial", price: 292, homiePrice: 292, stock: 3, isPack: true },
+        { id: "pack-bpc-157-10", familyName: "BPC-157", strength: "10 mg/vial", price: 172, homiePrice: 172, stock: 4, isPack: true },
+        { id: "pack-ghk-cu-100", familyName: "GHK-Cu", strength: "100 mg/vial", price: 112, homiePrice: 112, stock: 11, isPack: true },
+        { id: "pack-klow-80", familyName: "KLOW Peptide Blend", strength: "80 mg/vial", price: 474, homiePrice: 474, stock: 3, isPack: true },
+        { id: "pack-l-carnitine-1200", familyName: "L-Carnitine", strength: "1200 mg/vial", price: 240, homiePrice: 240, stock: 1, isPack: true },
+        { id: "pack-mots-c-10", familyName: "MOTS-c", strength: "10 mg/vial", price: 180, homiePrice: 180, stock: 4, isPack: true },
+        { id: "pack-mots-c-40", familyName: "MOTS-c", strength: "40 mg/vial", price: 420, homiePrice: 420, stock: 1, isPack: true },
+        { id: "pack-nad-1000", familyName: "NAD+", strength: "1000 mg/vial", price: 230, homiePrice: 230, stock: 5, isPack: true },
+        { id: "pack-pt-141-10", familyName: "PT-141 (Bremelanotide)", strength: "10 mg/vial", price: 196, homiePrice: 196, stock: 3, isPack: true },
+        { id: "pack-retatrutide-5", familyName: "Retatrutide", strength: "5 mg/vial", price: 150, homiePrice: 150, stock: 5, isPack: true },
+        { id: "pack-retatrutide-10", familyName: "Retatrutide", strength: "10 mg/vial", price: 240, homiePrice: 240, stock: 5, isPack: true },
+        { id: "pack-retatrutide-15", familyName: "Retatrutide", strength: "15 mg/vial", price: 280, homiePrice: 280, stock: 2, isPack: true },
+        { id: "pack-retatrutide-20", familyName: "Retatrutide", strength: "20 mg/vial", price: 360, homiePrice: 360, stock: 3, isPack: true },
+        { id: "pack-retatrutide-30", familyName: "Retatrutide", strength: "30 mg/vial", price: 440, homiePrice: 440, stock: 1, isPack: true },
+        { id: "pack-retatrutide-40", familyName: "Retatrutide", strength: "40 mg/vial", price: 510, homiePrice: 510, stock: 2, isPack: true },
+        { id: "pack-retatrutide-50", familyName: "Retatrutide", strength: "50 mg/vial", price: 570, homiePrice: 570, stock: 3, isPack: true },
+        { id: "pack-retatrutide-60", familyName: "Retatrutide", strength: "60 mg/vial", price: 640, homiePrice: 640, stock: 2, isPack: true },
+        { id: "pack-selank-10", familyName: "Selank", strength: "10 mg/vial", price: 172, homiePrice: 172, stock: 2, isPack: true },
+        { id: "pack-ss-31-50", familyName: "SS-31 (Elamipretide)", strength: "50 mg/vial", price: 682, homiePrice: 682, stock: 1, isPack: true },
+        { id: "pack-tirzepatide-15", familyName: "Tirzepatide", strength: "15 mg/vial", price: 168, homiePrice: 168, stock: 5, isPack: true },
+        { id: "pack-tirzepatide-20", familyName: "Tirzepatide", strength: "20 mg/vial", price: 192, homiePrice: 192, stock: 2, isPack: true },
+        { id: "pack-tirzepatide-60", familyName: "Tirzepatide", strength: "60 mg/vial", price: 438, homiePrice: 438, stock: 1, isPack: true },
+        { id: "pack-ss-31-10", familyName: "SS-31 (Elamipretide)", strength: "10 mg/vial", price: 236, homiePrice: 236, stock: 1, isPack: true },
+        { id: "pack-nad-500", familyName: "NAD+", strength: "500 mg/vial", price: 152, homiePrice: 152, stock: 4, isPack: true }
       ];
+      packProducts.forEach(function (product) { product.name = product.familyName + " " + product.strength + " — 10-vial pack"; });
+      products = products.concat(packProducts);
+      var productGroups = buildProductGroups();
+      var selectedPackVariants = {};
+      var packGroups = buildPackGroups();
       var kitsGrid = document.getElementById("kitsGrid");
-      var kitModal = document.getElementById("kitModal");
-      var kitInquiryKit = document.getElementById("kitInquiryKit");
-      var kitInquiryForm = document.getElementById("kitInquiryForm");
       function renderKits() {
         kitsGrid.innerHTML = "";
-        kitDefinitions.forEach(function (kit) {
+        kitsGrid.setAttribute("data-view", activeView);
+        packGroups.forEach(function (group) {
+          var product = group.variants.filter(function (variant) { return variant.id === selectedPackVariants[group.key]; })[0] || group.variants[0];
+          var tier = stockTier(product);
           var card = document.createElement("article");
-          card.className = "product-card family-kits";
-          card.setAttribute("data-kit-key", kit.key);
-          var tagHtml = kit.tag ? ' \u00b7 <span class="kit-tag">' + escapeHtml(kit.tag) + '</span>' : '';
+          var hasVariants = group.variants.length > 1;
+          var canOrder = product.stock > 0;
+          var variantButtons = group.variants.map(function (variant) {
+            return '<button class="variant-pill" type="button" data-pack-variant-id="' + escapeHtml(variant.id) + '" aria-pressed="' + (variant.id === product.id ? "true" : "false") + '">' + escapeHtml(variant.strength) + '</button>';
+          }).join("");
+          card.className = "product-card family-kits pack-card";
+          card.setAttribute("data-product-name", (group.displayName + " " + group.variants.map(function (variant) { return variant.strength; }).join(" ")).toLowerCase());
+          card.setAttribute("data-stock-tier", tier.className);
           card.innerHTML =
             '<div class="product-top">' +
-            '<div class="product-identity">' + vialIcon() + '<div><h3 class="product-name">' + escapeHtml(kit.name) + '</h3>' +
-            '<p class="kit-note">10-vial pack' + tagHtml + '</p></div></div>' +
+              '<div class="product-identity">' + vialIcon() + '<div><h3 class="product-name">' + escapeHtml(group.displayName) + '</h3>' +
+                '<span class="variant-name">' + escapeHtml(product.strength) + '</span><p class="product-price">' + money(currentPrice(product)) + '</p><p class="kit-note">10 vials per pack</p></div></div>' +
+              '<div class="stock-wrap"><span class="tier ' + tier.className + '">' + tier.label + '</span><span class="stock">' + product.stock + (product.stock === 1 ? ' box' : ' boxes') + '</span></div>' +
             '</div>' +
-            '<div class="product-actions"><button type="button" class="kit-inquire" data-kit-name="' + escapeHtml(kit.name) + '">Inquire</button></div>';
+            (hasVariants ? '<div class="variant-prompt"><strong>Choose strength</strong><span>Price updates instantly</span></div>' : '') +
+            '<div class="variant-options' + (hasVariants ? ' is-choice' : '') + '"' + (hasVariants ? '' : ' hidden') + ' aria-label="Choose ' + escapeHtml(group.displayName) + ' strength">' + variantButtons + '</div>' +
+            '<div class="product-actions"><div class="quantity"><span class="quantity-label">Packs</span><div class="stepper">' +
+              '<button type="button" data-pack-action="decrease" aria-label="Decrease pack quantity"' + (canOrder ? '' : ' disabled') + '>−</button>' +
+              '<input type="number" min="0" max="' + product.stock + '" value="' + quantities[product.id] + '" name="qty_' + escapeHtml(product.id) + '" aria-label="' + escapeHtml(group.displayName) + ' pack quantity" inputmode="numeric"' + (canOrder ? '' : ' disabled') + ' />' +
+              '<button type="button" data-pack-action="increase" aria-label="Increase pack quantity"' + (canOrder ? '' : ' disabled') + '>+</button></div></div>' +
+              '<button class="add-button" type="button" data-pack-action="add"' + (canOrder ? '' : ' disabled') + '>' + (canOrder ? 'Add pack to cart' : 'Out of stock') + '</button></div>';
+          var input = card.querySelector("input");
+          card.addEventListener("click", function (event) {
+            var variantButton = event.target.closest("[data-pack-variant-id]");
+            if (variantButton) {
+              selectedPackVariants[group.key] = variantButton.getAttribute("data-pack-variant-id");
+              renderKits();
+              filterProducts();
+              return;
+            }
+            var actionButton = event.target.closest("[data-pack-action]");
+            if (!actionButton || !canOrder) return;
+            var action = actionButton.getAttribute("data-pack-action");
+            var current = quantities[product.id] || 0;
+            quantities[product.id] = action === "decrease" ? Math.max(0, current - 1) : Math.min(product.stock, current + 1);
+            input.value = quantities[product.id];
+            updateSummary();
+          });
+          input.addEventListener("change", function () {
+            var next = parseInt(input.value, 10);
+            if (isNaN(next)) next = 0;
+            quantities[product.id] = Math.max(0, Math.min(product.stock, next));
+            input.value = quantities[product.id];
+            updateSummary();
+          });
           kitsGrid.appendChild(card);
         });
       }
-      function openKitModal(kitName) {
-        kitInquiryKit.value = kitName + " \u2014 10-vial pack";
-        kitModal.hidden = false;
-        document.body.style.overflow = "hidden";
-      }
-      function closeKitModal() {
-        kitModal.hidden = true;
-        document.body.style.overflow = "";
-      }
-      kitsGrid.addEventListener("click", function (event) {
-        var btn = event.target.closest("[data-kit-name]");
-        if (btn) openKitModal(btn.getAttribute("data-kit-name"));
-      });
-      document.getElementById("kitModalCancel").addEventListener("click", closeKitModal);
-      kitModal.addEventListener("click", function (event) { if (event.target === kitModal) closeKitModal(); });
-      document.addEventListener("keydown", function (event) { if (event.key === "Escape" && !kitModal.hidden) closeKitModal(); });
-      kitInquiryForm.addEventListener("submit", function () {
-        var btn = kitInquiryForm.querySelector('[type="submit"]');
-        btn.disabled = true;
-        btn.textContent = "Sending\u2026";
-      });
 
 
       var form = document.getElementById("orderForm");
@@ -876,18 +895,19 @@ var kitDefinitions = [
 
       function updateInventoryStats(checkedAt) {
         var date = checkedAt || new Date();
-        listedProducts.textContent = (products.length + kitDefinitions.length).toLocaleString();
+        listedProducts.textContent = products.length.toLocaleString();
         inventoryUpdated.textContent = "Updated " + date.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + ", " + date.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
       }
 
       function applyLiveProducts(nextProducts) {
         if (!nextProducts.length) throw new Error("Live catalog is empty");
-        products = nextProducts;
+        products = nextProducts.concat(packProducts);
         products.sort(function (a, b) { return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }); });
         selectedVariants = {};
         productGroups = buildProductGroups();
         renderFamilyFilters();
         renderProducts();
+        renderKits();
         filterProducts();
         updateSummary();
         updateInventoryStats(new Date());
@@ -943,16 +963,17 @@ var kitDefinitions = [
       function buildProductGroups() {
         var groupedIds = {};
         var groups = [];
+        var singleProducts = products.filter(function (product) { return !product.isPack; });
 
         familyDefinitions.forEach(function (definition) {
-          var variants = products.filter(definition.matches);
+          var variants = singleProducts.filter(definition.matches);
           variants.sort(function (a, b) { return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }); });
           if (!variants.length) return;
           variants.forEach(function (product) { groupedIds[product.id] = true; });
           groups.push({ key: definition.key, category: definition.key, displayName: definition.name, variants: variants });
         });
 
-        products.forEach(function (product) {
+        singleProducts.forEach(function (product) {
           if (!groupedIds[product.id]) {
             groups.push({ key: "single-" + product.id, category: "singles", displayName: product.name, variants: [product] });
           }
@@ -969,6 +990,24 @@ var kitDefinitions = [
         return groups;
       }
 
+      function buildPackGroups() {
+        var groupsByName = {};
+        packProducts.forEach(function (product) {
+          var key = "pack-" + product.familyName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+          if (!groupsByName[key]) groupsByName[key] = { key: key, displayName: product.familyName, variants: [] };
+          groupsByName[key].variants.push(product);
+          if (typeof quantities[product.id] !== "number") quantities[product.id] = 0;
+        });
+        return Object.keys(groupsByName).map(function (key) {
+          var group = groupsByName[key];
+          group.variants.sort(function (a, b) { return parseFloat(a.strength) - parseFloat(b.strength); });
+          if (!selectedPackVariants[key] || !group.variants.some(function (variant) { return variant.id === selectedPackVariants[key]; })) {
+            selectedPackVariants[key] = group.variants[0].id;
+          }
+          return group;
+        }).sort(function (a, b) { return a.displayName.localeCompare(b.displayName, undefined, { sensitivity: "base" }); });
+      }
+
       function selectedProductForGroup(group) {
         return group.variants.filter(function (variant) { return variant.id === selectedVariants[group.key]; })[0] || group.variants[0];
       }
@@ -980,14 +1019,15 @@ var kitDefinitions = [
         }
         familyFilters.innerHTML =
           '<button class="family-pill" type="button" data-family-filter="all" aria-pressed="' + (activeFamilyFilter === "all" ? "true" : "false") + '">All products</button>' +
+          '<button class="family-pill pack-filter" type="button" data-family-filter="packs" aria-pressed="' + (activeFamilyFilter === "packs" ? "true" : "false") + '">10-vial packs · ' + packProducts.length + '</button>' +
           productGroups.map(function (group) {
             return '<button class="family-pill" type="button" data-family-filter="' + escapeHtml(group.key) + '" aria-pressed="' + (activeFamilyFilter === group.key ? "true" : "false") + '">' + escapeHtml(group.displayName) + '</button>';
-          }).join("") +
-          '<button class="family-pill" type="button" data-family-filter="packs" aria-pressed="' + (activeFamilyFilter === "packs" ? "true" : "false") + '">10-vial packs</button>';
+          }).join("");
       }
 
       function displayProductName(product) {
         var match;
+        if (product.isPack) return product.familyName + " · " + product.strength + " · 10-vial pack";
         if (/^R-\d+(?:\.\d+)?$/i.test(product.name)) return product.name.toUpperCase() + " mg";
         if (/^T-\d+(?:\.\d+)?$/i.test(product.name)) return product.name.toUpperCase() + " mg";
         match = product.name.match(/^Vendor Bac (\d+(?:\.\d+)?mL)$/i);
@@ -1110,7 +1150,25 @@ var kitDefinitions = [
         if (activeFamilyFilter === "packs") {
           productGrid.hidden = true;
           kitsGrid.hidden = false;
-          resultCount.textContent = kitDefinitions.length + " 10-vial packs";
+          var packQuery = productSearch.value.trim().toLowerCase();
+          var packCards = kitsGrid.querySelectorAll(".product-card");
+          var shownPacks = 0;
+          Array.prototype.forEach.call(packCards, function (card) {
+            var matchesSearch = !packQuery || card.getAttribute("data-product-name").indexOf(packQuery) !== -1;
+            var matchesTier = activeStockFilter === "all" || card.getAttribute("data-stock-tier") === activeStockFilter;
+            var matches = matchesSearch && matchesTier;
+            card.hidden = !matches;
+            if (matches) shownPacks += 1;
+          });
+          var oldPackEmpty = kitsGrid.querySelector(".no-results");
+          if (oldPackEmpty) oldPackEmpty.remove();
+          if (!shownPacks) {
+            var packEmpty = document.createElement("div");
+            packEmpty.className = "no-results";
+            packEmpty.textContent = "No 10-vial packs match these filters.";
+            kitsGrid.appendChild(packEmpty);
+          }
+          resultCount.textContent = shownPacks + (shownPacks === 1 ? " product line" : " product lines") + " · " + packProducts.length + " pack options";
           return;
         }
         productGrid.hidden = false;
@@ -1160,6 +1218,7 @@ var kitDefinitions = [
         button.addEventListener("click", function () {
           activeView = button.getAttribute("data-view");
           productGrid.setAttribute("data-view", activeView);
+          kitsGrid.setAttribute("data-view", activeView);
           Array.prototype.forEach.call(viewButtons, function (option) {
             option.setAttribute("aria-pressed", option === button ? "true" : "false");
           });
@@ -1185,6 +1244,7 @@ var kitDefinitions = [
         }
 
         renderProducts();
+        renderKits();
         filterProducts();
         updateSummary();
       }
@@ -1226,6 +1286,7 @@ var kitDefinitions = [
         if (!removeButton) return;
         quantities[removeButton.getAttribute("data-remove-product")] = 0;
         renderProducts();
+        renderKits();
         filterProducts();
         updateSummary();
       });
@@ -1374,8 +1435,8 @@ var kitDefinitions = [
       form.addEventListener("submit", function (event) {
         if (!selectedProducts().length) {
           event.preventDefault();
-          showError("Choose at least one vial.", "Use the quantity buttons above, then submit again.", false);
-          productGrid.scrollIntoView({ behavior: "smooth", block: "center" });
+          showError("Choose at least one product.", "Use the quantity buttons above, then submit again.", false);
+          (activeFamilyFilter === "packs" ? kitsGrid : productGrid).scrollIntoView({ behavior: "smooth", block: "center" });
           return;
         }
         if (!form.reportValidity()) {
