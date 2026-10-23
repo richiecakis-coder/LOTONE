@@ -221,15 +221,15 @@
     .catalog-primary,.catalog-secondary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
     .catalog-primary .search-wrap{flex:1 1 auto;min-width:0}
     .catalog-primary .search-wrap input{height:42px;padding-block:9px}
-    .family-filters,.stock-filters{display:flex;flex-wrap:wrap;gap:6px}
-    .family-filters{padding:9px 0;border-block:1px solid rgba(39,216,255,.16)}
-    .family-pill,.view-button{border:1px solid rgba(39,216,255,.3);background:linear-gradient(180deg,rgba(11,37,62,.9),rgba(3,15,29,.96));color:var(--muted);font-weight:800;cursor:pointer}
-    .family-pill{min-height:32px;padding:7px 11px;border-radius:999px;font-size:11px;line-height:1}
-    .family-pill:hover,.view-button:hover{border-color:var(--accent);color:var(--accent-strong)}
-    .family-pill[aria-pressed="true"],.view-button[aria-pressed="true"]{border-color:var(--accent-strong);background:linear-gradient(135deg,rgba(0,105,168,.68),rgba(0,48,116,.78));color:#eaffff;text-shadow:0 0 8px rgba(124,236,255,.9);box-shadow:0 0 14px rgba(39,216,255,.28),inset 0 0 14px rgba(39,216,255,.18)}
-    .family-pill:focus-visible,.view-button:focus-visible,.variant-pill:focus-visible,.add-button:focus-visible{outline:3px solid rgba(39,216,255,.28);outline-offset:2px}
-    .view-toggle{display:grid;grid-template-columns:repeat(2,auto);padding:3px;border:1px solid var(--line);border-radius:9px;background:var(--field);flex:0 0 auto}
-    .view-button{display:flex;align-items:center;gap:5px;min-height:34px;padding:6px 9px;border-color:transparent;border-radius:6px;font-size:11px;line-height:1}
+    .stock-filters{display:flex;flex-wrap:wrap;gap:6px}
+    .catalog-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+    .category-pill,.alphabet-pill{border:1px solid rgba(39,216,255,.3);background:linear-gradient(180deg,rgba(11,37,62,.9),rgba(3,15,29,.96));color:var(--muted);font-weight:800;cursor:pointer}
+    .category-pill{display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:7px 11px;border-radius:10px;font-size:12px;line-height:1.1}.category-pill small{color:#7890a5;font-size:9px;font-weight:700}
+    .alphabet-filters{display:flex;flex-wrap:nowrap;gap:5px;width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:none;padding:9px 0;border-block:1px solid rgba(39,216,255,.16)}.alphabet-filters::-webkit-scrollbar{display:none}
+    .alphabet-pill{flex:0 0 auto;min-width:32px;min-height:32px;padding:6px 8px;border-radius:999px;font-size:11px;line-height:1;scroll-snap-align:start}.alphabet-pill:first-child{min-width:45px}
+    .category-pill:hover,.alphabet-pill:hover{border-color:var(--accent);color:var(--accent-strong)}
+    .category-pill[aria-pressed="true"],.alphabet-pill[aria-pressed="true"]{border-color:var(--accent-strong);background:linear-gradient(135deg,rgba(0,105,168,.68),rgba(0,48,116,.78));color:#eaffff;text-shadow:0 0 8px rgba(124,236,255,.9);box-shadow:0 0 14px rgba(39,216,255,.28),inset 0 0 14px rgba(39,216,255,.18)}
+    .category-pill:focus-visible,.alphabet-pill:focus-visible,.variant-pill:focus-visible,.add-button:focus-visible{outline:3px solid rgba(39,216,255,.28);outline-offset:2px}
     .catalog-secondary .stock-filters{flex:1 1 auto}
     .result-count{font-size:12px}
 
@@ -281,12 +281,12 @@
       .product-grid[data-view="list"] .quantity{width:100%}.product-grid[data-view="list"] .stepper{width:min(132px,100%)}.product-grid[data-view="list"] .add-button{width:auto;min-width:72px}
     }
     @media(max-width:650px){
-      .panel{padding:16px 12px}.section-head{margin-bottom:14px}.catalog-primary{align-items:stretch}.view-button span{display:none}.view-button{padding-inline:8px}.catalog-secondary{align-items:flex-start}.stock-filters{display:flex;flex-wrap:wrap}.filter-pill{min-height:31px;padding:7px 9px;font-size:10px;white-space:nowrap}
-      .family-filters{flex-wrap:nowrap;gap:5px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:none}.family-filters::-webkit-scrollbar{display:none}.family-pill{flex:0 0 auto;padding:7px 9px;scroll-snap-align:start}.result-count{padding-top:8px}
+      .panel{padding:16px 12px}.section-head{margin-bottom:14px}.catalog-primary{align-items:stretch}.catalog-secondary{align-items:flex-start}.stock-filters{display:flex;flex-wrap:wrap}.filter-pill{min-height:31px;padding:7px 9px;font-size:10px;white-space:nowrap}
+      .catalog-categories{gap:6px}.category-pill{min-height:40px;padding:6px 8px;font-size:11px}.category-pill small{font-size:8px}.alphabet-filters{gap:5px}.alphabet-pill{padding:6px 8px}.result-count{padding-top:8px}
       .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.product-card{min-height:226px;padding:9px;gap:8px}.product-identity{gap:6px}.vial-motif{width:20px;height:34px}.product-name{font-size:12px}.product-price{font-size:15px}.variant-pill{padding:5px 6px;font-size:9px}.product-actions{grid-template-columns:1fr}.add-button{width:100%}.stepper{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
       .product-grid[data-view="list"] .product-card{min-height:156px}.product-grid[data-view="list"] .variant-options{gap:7px}.product-grid[data-view="list"] .variant-pill{padding:6px 9px}.product-grid[data-view="list"] .stepper{width:min(132px,100%)}.product-grid[data-view="list"] .add-button{width:auto}
     }
-    @media(max-width:370px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.product-card{min-height:220px;padding:8px 7px}.variant-pill{padding-inline:5px}.view-button span{display:none}.catalog-secondary{display:grid}.result-count{padding-top:0}.product-grid[data-view="list"] .product-card{min-height:0}}
+    @media(max-width:370px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.product-card{min-height:220px;padding:8px 7px}.variant-pill{padding-inline:5px}.catalog-secondary{display:grid}.result-count{padding-top:0}.category-pill{display:grid;gap:2px}.product-grid[data-view="list"] .product-card{min-height:0}}
     .variant-prompt{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px;padding-top:8px;border-top:1px solid rgba(39,216,255,.16)}
     .variant-prompt strong{color:#fff;font:800 11px/1.2 "Manrope",sans-serif;letter-spacing:.045em;text-transform:uppercase}.variant-prompt span{color:var(--accent-strong);font-size:9px;font-weight:800}
     .variant-options.is-choice{min-height:42px;padding:7px;border:1px solid rgba(39,216,255,.42);border-radius:10px;background:rgba(4,19,34,.82);box-shadow:inset 0 0 18px rgba(39,216,255,.05),0 0 18px rgba(39,216,255,.08)}
@@ -340,20 +340,12 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               <input id="productSearch" type="search" placeholder="Search products" autocomplete="off" aria-label="Search products" />
             </div>
-            <div class="view-toggle" role="group" aria-label="Product view">
-              <button class="view-button" type="button" data-view="grid" aria-pressed="true" aria-label="Card view">
-                <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="6" height="6" rx="1" stroke="currentColor"/><rect x="10.5" y="1.5" width="6" height="6" rx="1" stroke="currentColor"/><rect x="1.5" y="10.5" width="6" height="6" rx="1" stroke="currentColor"/><rect x="10.5" y="10.5" width="6" height="6" rx="1" stroke="currentColor"/></svg>
-                <span>Cards</span>
-              </button>
-              <button class="view-button" type="button" data-view="list" aria-pressed="false" aria-label="List view">
-                <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 4h2M7 4h9M2 9h2M7 9h9M2 14h2M7 14h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                <span>List</span>
-              </button>
-            </div>
           </div>
-          <div id="familyFilters" class="family-filters" aria-label="Filter by product">
-            <button class="family-pill" type="button" data-family-filter="all" aria-pressed="true">All products</button>
+          <div id="catalogCategories" class="catalog-categories" aria-label="Choose catalog type">
+            <button class="category-pill" type="button" data-catalog-category="singles" aria-pressed="true"><span>Individual Vials</span><small>1 vial each</small></button>
+            <button class="category-pill" type="button" data-catalog-category="packs" aria-pressed="false"><span>10-Vial Packs</span><small>10 vials each</small></button>
           </div>
+          <div id="alphabetFilters" class="alphabet-filters" aria-label="Filter products by first letter"></div>
           <div class="catalog-secondary">
             <div class="stock-filters" aria-label="Filter products by stock level">
               <button class="filter-pill" type="button" data-stock-filter="all" aria-pressed="true">All stock</button>
@@ -571,8 +563,8 @@
       var pendingOrderNumber = "";
       var homiePricingApplied = false;
       var activeStockFilter = "all";
-      var activeFamilyFilter = "all";
-      var activeView = "grid";
+      var activeCatalogCategory = "singles";
+      var activeLetter = "all";
       var selectedVariants = {};
       var familyDefinitions = [
         { key: "reta", name: "RT", matches: function (product) { return /^R-\d+(?:\.\d+)?$/i.test(product.name); } },
@@ -622,7 +614,6 @@
       var kitsGrid = document.getElementById("kitsGrid");
       function renderKits() {
         kitsGrid.innerHTML = "";
-        kitsGrid.setAttribute("data-view", activeView);
         packGroups.forEach(function (group) {
           var product = group.variants.filter(function (variant) { return variant.id === selectedPackVariants[group.key]; })[0] || group.variants[0];
           var tier = stockTier(product);
@@ -681,8 +672,8 @@
       var productGrid = document.getElementById("productGrid");
       var productSearch = document.getElementById("productSearch");
       var stockFilterButtons = document.querySelectorAll("[data-stock-filter]");
-      var familyFilters = document.getElementById("familyFilters");
-      var viewButtons = document.querySelectorAll("[data-view]");
+      var catalogCategories = document.getElementById("catalogCategories");
+      var alphabetFilters = document.getElementById("alphabetFilters");
       var resultCount = document.getElementById("resultCount");
       var listedProducts = document.getElementById("listedProducts");
       var inventoryUpdated = document.getElementById("inventoryUpdated");
@@ -1013,16 +1004,16 @@
       }
 
       function renderFamilyFilters() {
-        var availableKeys = productGroups.map(function (group) { return group.key; });
-        if (activeFamilyFilter !== "all" && activeFamilyFilter !== "packs" && availableKeys.indexOf(activeFamilyFilter) === -1) {
-          activeFamilyFilter = "all";
-        }
-        familyFilters.innerHTML =
-          '<button class="family-pill" type="button" data-family-filter="all" aria-pressed="' + (activeFamilyFilter === "all" ? "true" : "false") + '">All products</button>' +
-          '<button class="family-pill pack-filter" type="button" data-family-filter="packs" aria-pressed="' + (activeFamilyFilter === "packs" ? "true" : "false") + '">10-vial packs · ' + packProducts.length + '</button>' +
-          productGroups.map(function (group) {
-            return '<button class="family-pill" type="button" data-family-filter="' + escapeHtml(group.key) + '" aria-pressed="' + (activeFamilyFilter === group.key ? "true" : "false") + '">' + escapeHtml(group.displayName) + '</button>';
-          }).join("");
+        var letters = ["all", "#"].concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+        alphabetFilters.innerHTML = letters.map(function (letter) {
+          var label = letter === "all" ? "All" : letter;
+          return '<button class="alphabet-pill" type="button" data-letter-filter="' + letter + '" aria-pressed="' + (activeLetter === letter ? "true" : "false") + '">' + label + '</button>';
+        }).join("");
+      }
+
+      function catalogInitial(name) {
+        var initial = String(name || "").trim().charAt(0).toUpperCase();
+        return /^[A-Z]$/.test(initial) ? initial : "#";
       }
 
       function displayProductName(product) {
@@ -1075,7 +1066,6 @@
 
       function renderProducts() {
         productGrid.innerHTML = "";
-        productGrid.setAttribute("data-view", activeView);
 
         productGroups.forEach(function (group) {
           var product = selectedProductForGroup(group);
@@ -1147,7 +1137,7 @@
       }
 
       function filterProducts() {
-        if (activeFamilyFilter === "packs") {
+        if (activeCatalogCategory === "packs") {
           productGrid.hidden = true;
           kitsGrid.hidden = false;
           var packQuery = productSearch.value.trim().toLowerCase();
@@ -1156,7 +1146,9 @@
           Array.prototype.forEach.call(packCards, function (card) {
             var matchesSearch = !packQuery || card.getAttribute("data-product-name").indexOf(packQuery) !== -1;
             var matchesTier = activeStockFilter === "all" || card.getAttribute("data-stock-tier") === activeStockFilter;
-            var matches = matchesSearch && matchesTier;
+            var cardHeading = card.querySelector(".product-name");
+            var matchesLetter = activeLetter === "all" || catalogInitial(cardHeading ? cardHeading.textContent : "") === activeLetter;
+            var matches = matchesSearch && matchesTier && matchesLetter;
             card.hidden = !matches;
             if (matches) shownPacks += 1;
           });
@@ -1179,8 +1171,9 @@
         Array.prototype.forEach.call(cards, function (card) {
           var matchesSearch = !query || card.getAttribute("data-product-name").indexOf(query) !== -1;
           var matchesTier = activeStockFilter === "all" || card.getAttribute("data-stock-tier") === activeStockFilter;
-          var matchesFamily = activeFamilyFilter === "all" || card.getAttribute("data-family") === activeFamilyFilter;
-          var matches = matchesSearch && matchesTier && matchesFamily;
+          var cardHeading = card.querySelector(".product-name");
+          var matchesLetter = activeLetter === "all" || catalogInitial(cardHeading ? cardHeading.textContent : "") === activeLetter;
+          var matches = matchesSearch && matchesTier && matchesLetter;
           card.hidden = !matches;
           if (matches) shown += 1;
         });
@@ -1205,24 +1198,23 @@
           filterProducts();
         });
       });
-      familyFilters.addEventListener("click", function (event) {
-        var button = event.target.closest("[data-family-filter]");
+      catalogCategories.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-catalog-category]");
         if (!button) return;
-        activeFamilyFilter = button.getAttribute("data-family-filter");
-        Array.prototype.forEach.call(familyFilters.querySelectorAll("[data-family-filter]"), function (option) {
+        activeCatalogCategory = button.getAttribute("data-catalog-category");
+        Array.prototype.forEach.call(catalogCategories.querySelectorAll("[data-catalog-category]"), function (option) {
           option.setAttribute("aria-pressed", option === button ? "true" : "false");
         });
         filterProducts();
       });
-      Array.prototype.forEach.call(viewButtons, function (button) {
-        button.addEventListener("click", function () {
-          activeView = button.getAttribute("data-view");
-          productGrid.setAttribute("data-view", activeView);
-          kitsGrid.setAttribute("data-view", activeView);
-          Array.prototype.forEach.call(viewButtons, function (option) {
-            option.setAttribute("aria-pressed", option === button ? "true" : "false");
-          });
+      alphabetFilters.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-letter-filter]");
+        if (!button) return;
+        activeLetter = button.getAttribute("data-letter-filter");
+        Array.prototype.forEach.call(alphabetFilters.querySelectorAll("[data-letter-filter]"), function (option) {
+          option.setAttribute("aria-pressed", option === button ? "true" : "false");
         });
+        filterProducts();
       });
 
       function updatePriceTier() {
@@ -1436,7 +1428,7 @@
         if (!selectedProducts().length) {
           event.preventDefault();
           showError("Choose at least one product.", "Use the quantity buttons above, then submit again.", false);
-          (activeFamilyFilter === "packs" ? kitsGrid : productGrid).scrollIntoView({ behavior: "smooth", block: "center" });
+          (activeCatalogCategory === "packs" ? kitsGrid : productGrid).scrollIntoView({ behavior: "smooth", block: "center" });
           return;
         }
         if (!form.reportValidity()) {
