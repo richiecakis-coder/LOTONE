@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T13:20:04.000874+00:00",
+  "updatedAt": "2026-10-30T18:43:58.496773+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -14,15 +14,39 @@
       }
     },
     {
+      "id": "bpc-157-10",
+      "name": "BPC-157 10",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 8,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 8
+      }
+    },
+    {
       "id": "bt10",
       "name": "BT10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 17,
+      "stock": 16,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 17
+        "R3": 16
+      }
+    },
+    {
+      "id": "cagrilintide-10-mg-s2",
+      "name": "Cagrilintide 10 mg (S2)",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 3,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 3
       }
     },
     {
@@ -66,11 +90,11 @@
       "name": "G5K",
       "price": 0,
       "homiePrice": 0,
-      "stock": 10,
+      "stock": 1,
       "warehouses": {
         "R1": 0,
         "R2": 1,
-        "R3": 9
+        "R3": 0
       }
     },
     {
@@ -78,11 +102,71 @@
       "name": "GHKCU100",
       "price": 49,
       "homiePrice": 39,
-      "stock": 51,
+      "stock": 61,
       "warehouses": {
         "R1": 33,
         "R2": 8,
+        "R3": 20
+      }
+    },
+    {
+      "id": "glutathione-1200-mg-s2",
+      "name": "Glutathione 1200 mg (S2)",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 10,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
         "R3": 10
+      }
+    },
+    {
+      "id": "glutathione-1500",
+      "name": "Glutathione 1500",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 20,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 20
+      }
+    },
+    {
+      "id": "hcg-10-000",
+      "name": "HCG 10,000",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 10,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 10
+      }
+    },
+    {
+      "id": "hcg-5-000",
+      "name": "HCG 5,000",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 8,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 8
+      }
+    },
+    {
+      "id": "hgh-191aa-15",
+      "name": "HGH 191AA 15",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 38,
+      "warehouses": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 38
       }
     },
     {
@@ -90,11 +174,11 @@
       "name": "Klow 80",
       "price": 149,
       "homiePrice": 129,
-      "stock": 8,
+      "stock": 28,
       "warehouses": {
         "R1": 0,
         "R2": 8,
-        "R3": 0
+        "R3": 20
       }
     },
     {
@@ -102,11 +186,11 @@
       "name": "KPV 10",
       "price": 59,
       "homiePrice": 39,
-      "stock": 56,
+      "stock": 55,
       "warehouses": {
         "R1": 5,
         "R2": 0,
-        "R3": 51
+        "R3": 50
       }
     },
     {
@@ -210,11 +294,11 @@
       "name": "R-20",
       "price": 109,
       "homiePrice": 85,
-      "stock": 86,
+      "stock": 96,
       "warehouses": {
         "R1": 47,
         "R2": 0,
-        "R3": 39
+        "R3": 49
       }
     },
     {
@@ -306,11 +390,11 @@
       "name": "Semax 10",
       "price": 49,
       "homiePrice": 29,
-      "stock": 11,
+      "stock": 71,
       "warehouses": {
         "R1": 11,
         "R2": 0,
-        "R3": 0
+        "R3": 60
       }
     },
     {
@@ -354,11 +438,11 @@
       "name": "T-20",
       "price": 0,
       "homiePrice": 0,
-      "stock": 30,
+      "stock": 29,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 30
+        "R3": 29
       }
     },
     {
@@ -390,11 +474,11 @@
       "name": "TA-1 10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 7,
+      "stock": 6,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 7
+        "R3": 6
       }
     },
     {
