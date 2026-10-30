@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T06:13:48.807099+00:00",
+  "updatedAt": "2026-10-30T13:20:04.000874+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -42,9 +42,9 @@
       "name": "DSIP 15",
       "price": 69,
       "homiePrice": 49,
-      "stock": 7,
+      "stock": 5,
       "warehouses": {
-        "R1": 3,
+        "R1": 1,
         "R2": 0,
         "R3": 4
       }
@@ -78,9 +78,9 @@
       "name": "GHKCU100",
       "price": 49,
       "homiePrice": 39,
-      "stock": 52,
+      "stock": 51,
       "warehouses": {
-        "R1": 34,
+        "R1": 33,
         "R2": 8,
         "R3": 10
       }
@@ -186,9 +186,9 @@
       "name": "R-10",
       "price": 79,
       "homiePrice": 55,
-      "stock": 17,
+      "stock": 16,
       "warehouses": {
-        "R1": 17,
+        "R1": 16,
         "R2": 0,
         "R3": 0
       }
@@ -210,9 +210,9 @@
       "name": "R-20",
       "price": 109,
       "homiePrice": 85,
-      "stock": 87,
+      "stock": 86,
       "warehouses": {
-        "R1": 48,
+        "R1": 47,
         "R2": 0,
         "R3": 39
       }
