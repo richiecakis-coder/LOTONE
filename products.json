@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T23:46:20.249596+00:00",
+  "updatedAt": "2026-11-02T04:42:14.614215+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -102,9 +102,9 @@
       "name": "GHKCU100",
       "price": 49,
       "homiePrice": 39,
-      "stock": 61,
+      "stock": 59,
       "warehouses": {
-        "R1": 33,
+        "R1": 31,
         "R2": 8,
         "R3": 20
       }
@@ -294,9 +294,9 @@
       "name": "R-20",
       "price": 109,
       "homiePrice": 85,
-      "stock": 96,
+      "stock": 94,
       "warehouses": {
-        "R1": 47,
+        "R1": 45,
         "R2": 0,
         "R3": 49
       }
@@ -306,9 +306,9 @@
       "name": "R-30",
       "price": 149,
       "homiePrice": 115,
-      "stock": 18,
+      "stock": 17,
       "warehouses": {
-        "R1": 3,
+        "R1": 2,
         "R2": 0,
         "R3": 15
       }
