@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T03:36:48.098651+00:00",
+  "updatedAt": "2026-11-03T11:39:18.334965+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -426,11 +426,11 @@
       "name": "SS-31 50",
       "price": 99,
       "homiePrice": 79,
-      "stock": 18,
+      "stock": 17,
       "warehouses": {
         "R1": 1,
         "R2": 0,
-        "R3": 17
+        "R3": 16
       }
     },
     {
@@ -474,11 +474,11 @@
       "name": "TA-1 10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 6,
+      "stock": 5,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 6
+        "R3": 5
       }
     },
     {
