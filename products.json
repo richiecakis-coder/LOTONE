@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T22:24:40.053003+00:00",
+  "updatedAt": "2026-11-03T03:36:48.098651+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -174,9 +174,9 @@
       "name": "Klow 80",
       "price": 149,
       "homiePrice": 129,
-      "stock": 28,
+      "stock": 38,
       "warehouses": {
-        "R1": 0,
+        "R1": 10,
         "R2": 8,
         "R3": 20
       }
