@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T00:05:53.730377+00:00",
+  "updatedAt": "2026-11-04T06:51:42.766738+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -474,9 +474,9 @@
       "name": "TA-1 10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 5,
+      "stock": 6,
       "warehouses": {
-        "R1": 0,
+        "R1": 1,
         "R2": 0,
         "R3": 5
       }
