@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T18:56:51.253762+00:00",
+  "updatedAt": "2026-11-06T23:41:19.488982+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -30,11 +30,11 @@
       "name": "BT10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 16,
+      "stock": 15,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 16
+        "R3": 15
       }
     },
     {
@@ -546,11 +546,11 @@
       "name": "Vendor Bac 30mL",
       "price": 0,
       "homiePrice": 0,
-      "stock": 25,
+      "stock": 23,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 25
+        "R3": 23
       }
     },
     {
