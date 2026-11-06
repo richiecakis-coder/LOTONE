@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T11:50:49.231649+00:00",
+  "updatedAt": "2026-11-06T18:56:51.253762+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -450,9 +450,9 @@
       "name": "T-30",
       "price": 89,
       "homiePrice": 69,
-      "stock": 40,
+      "stock": 50,
       "warehouses": {
-        "R1": 20,
+        "R1": 30,
         "R2": 0,
         "R3": 20
       }
@@ -570,9 +570,9 @@
       "name": "Wolverine 10",
       "price": 69,
       "homiePrice": 49,
-      "stock": 0,
+      "stock": 10,
       "warehouses": {
-        "R1": 0,
+        "R1": 10,
         "R2": 0,
         "R3": 0
       }
