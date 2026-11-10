@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T03:21:09.174215+00:00",
+  "updatedAt": "2026-11-10T11:32:09.588760+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -282,9 +282,9 @@
       "name": "R-15",
       "price": 89,
       "homiePrice": 70,
-      "stock": 10,
+      "stock": 7,
       "warehouses": {
-        "R1": 8,
+        "R1": 5,
         "R2": 2,
         "R3": 0
       }
@@ -402,9 +402,9 @@
       "name": "Semax 30",
       "price": 79,
       "homiePrice": 59,
-      "stock": 25,
+      "stock": 24,
       "warehouses": {
-        "R1": 25,
+        "R1": 24,
         "R2": 0,
         "R3": 0
       }
