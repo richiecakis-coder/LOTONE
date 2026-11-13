@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T23:58:31.588712+00:00",
+  "updatedAt": "2026-11-13T06:22:35.140537+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -162,11 +162,11 @@
       "name": "HGH 191AA 15",
       "price": 0,
       "homiePrice": 0,
-      "stock": 38,
+      "stock": 37,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 38
+        "R3": 37
       }
     },
     {
