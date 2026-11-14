@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14T01:35:40.889817+00:00",
+  "updatedAt": "2026-11-14T08:39:23.043758+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -18,11 +18,11 @@
       "name": "BPC-157 10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 8,
+      "stock": 7,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 8
+        "R3": 7
       }
     },
     {
@@ -174,11 +174,11 @@
       "name": "Klow 80",
       "price": 149,
       "homiePrice": 129,
-      "stock": 38,
+      "stock": 35,
       "warehouses": {
         "R1": 10,
         "R2": 8,
-        "R3": 20
+        "R3": 17
       }
     },
     {
@@ -186,11 +186,11 @@
       "name": "KPV 10",
       "price": 59,
       "homiePrice": 39,
-      "stock": 55,
+      "stock": 54,
       "warehouses": {
         "R1": 5,
         "R2": 0,
-        "R3": 50
+        "R3": 49
       }
     },
     {
