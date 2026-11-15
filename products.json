@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T00:07:13.874362+00:00",
+  "updatedAt": "2026-11-15T06:57:37.926169+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -210,9 +210,9 @@
       "name": "Mots40",
       "price": 115,
       "homiePrice": 89,
-      "stock": 45,
+      "stock": 44,
       "warehouses": {
-        "R1": 8,
+        "R1": 7,
         "R2": 9,
         "R3": 28
       }
@@ -342,9 +342,9 @@
       "name": "R-50",
       "price": 0,
       "homiePrice": 0,
-      "stock": 5,
+      "stock": 4,
       "warehouses": {
-        "R1": 5,
+        "R1": 4,
         "R2": 0,
         "R3": 0
       }
@@ -474,9 +474,9 @@
       "name": "TA-1 10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 11,
+      "stock": 10,
       "warehouses": {
-        "R1": 1,
+        "R1": 0,
         "R2": 0,
         "R3": 10
       }
