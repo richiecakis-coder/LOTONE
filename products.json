@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T17:49:26.027027+00:00",
+  "updatedAt": "2026-11-18T23:55:51.837101+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -174,11 +174,11 @@
       "name": "Klow 80",
       "price": 149,
       "homiePrice": 129,
-      "stock": 34,
+      "stock": 24,
       "warehouses": {
         "R1": 9,
         "R2": 8,
-        "R3": 17
+        "R3": 7
       }
     },
     {
@@ -486,11 +486,11 @@
       "name": "Tesa10",
       "price": 79,
       "homiePrice": 69,
-      "stock": 29,
+      "stock": 19,
       "warehouses": {
         "R1": 0,
         "R2": 0,
-        "R3": 29
+        "R3": 19
       }
     },
     {
@@ -534,11 +534,11 @@
       "name": "Vendor Bac 10mL",
       "price": 30,
       "homiePrice": 20,
-      "stock": 74,
+      "stock": 64,
       "warehouses": {
         "R1": 38,
         "R2": 9,
-        "R3": 27
+        "R3": 17
       }
     },
     {
