@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T15:58:03.609731+00:00",
+  "updatedAt": "2026-11-19T22:59:29.277433+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -47,6 +47,18 @@
         "R1": 0,
         "R2": 0,
         "R3": 3
+      }
+    },
+    {
+      "id": "cialis-tablets-mg-unconfirmed",
+      "name": "Cialis tablets (mg unconfirmed)",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 1500,
+      "warehouses": {
+        "R1": 1500,
+        "R2": 0,
+        "R3": 0
       }
     },
     {
@@ -155,6 +167,18 @@
         "R1": 0,
         "R2": 0,
         "R3": 8
+      }
+    },
+    {
+      "id": "hgh-191aa-10-iu-kit",
+      "name": "HGH 191aa 10 IU (kit)",
+      "price": 0,
+      "homiePrice": 0,
+      "stock": 1,
+      "warehouses": {
+        "R1": 1,
+        "R2": 0,
+        "R3": 0
       }
     },
     {
@@ -330,9 +354,9 @@
       "name": "R-5",
       "price": 59,
       "homiePrice": 39,
-      "stock": 0,
+      "stock": 20,
       "warehouses": {
-        "R1": 0,
+        "R1": 20,
         "R2": 0,
         "R3": 0
       }
