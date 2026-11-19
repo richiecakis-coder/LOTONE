@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T06:25:02.006505+00:00",
+  "updatedAt": "2026-11-19T15:58:03.609731+00:00",
   "products": [
     {
       "id": "5-amino-1mq-50",
@@ -474,9 +474,9 @@
       "name": "TA-1 10",
       "price": 0,
       "homiePrice": 0,
-      "stock": 10,
+      "stock": 15,
       "warehouses": {
-        "R1": 0,
+        "R1": 5,
         "R2": 0,
         "R3": 10
       }
@@ -558,9 +558,9 @@
       "name": "Vendor Bac 3mL",
       "price": 20,
       "homiePrice": 10,
-      "stock": 77,
+      "stock": 82,
       "warehouses": {
-        "R1": 14,
+        "R1": 19,
         "R2": 3,
         "R3": 60
       }
